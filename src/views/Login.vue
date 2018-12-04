@@ -145,7 +145,7 @@ export default {
                 console.log(error);
             });
         },
-authenticate: function(provider) {
+        authenticate: function(provider) {
             if (this.$auth.isAuthenticated()) {
               this.$auth.logout()
             }

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import axios from 'axios';
+import UserService from '@/services/UserService';
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -23,10 +23,8 @@ export default new Vuex.Store({
   actions: {
     retriveToken(context, credentials) {
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/users/login', {
-          email: credentials.email,
-          password: credentials.password
-        })
+        console.log(credentials);
+        UserService.login(credentials)
         .then(response => {
           const token = response.data.token;
           localStorage.setItem('token', token);
@@ -120,23 +118,19 @@ export default new Vuex.Store({
     },
     register(context, data) {
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/users/register', {
-          name: data.name,
-          email: data.email,
-          password: data.password
-        })
-        .then(response => {
-          const token = response.data.token;
+        UserService.register(data)
+          .then(response => {
+            const token = response.data.token;
 
-          localStorage.setItem('token', token);
-          context.commit('retriveToken', token);
-          resolve(response);
-          // console.log(response);
-        })
-        .catch(error => {
-          // console.log(error);
-          reject(error);
-        })
+            localStorage.setItem('token', token);
+            context.commit('retriveToken', token);
+            resolve(response);
+            // console.log(response);
+          })
+          .catch(error => {
+            console.log("error");
+            reject(error);
+          })
      })
     }
   }

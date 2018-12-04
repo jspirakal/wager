@@ -62,6 +62,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'Register',
     data() {
@@ -94,7 +95,7 @@ export default {
                 return false;
             }
             this.$store.dispatch('register', {
-                name: this.name,
+                username: this.name,
                 email: this.email,
                 password: this.password,
                 // passwordConfirm: this.passwordConfirm
@@ -102,8 +103,7 @@ export default {
             .then(response => {
                 this.$router.push({ name: 'home' });
             }).catch(error => {
-                this.error = error.response.data.error;
-                // console.log(error.response.data.error);
+                console.log(error);
             })
         }
     } 
