@@ -5,7 +5,7 @@
 <script>
 export default {
     name: 'Logout',
-    created() {
+    mounted() {
         this.$store.dispatch('destroyToken')
         .then(response => {
             this.$router.push({ name: 'home' });

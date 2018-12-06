@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
 import UserService from '@/services/UserService';
 Vue.use(Vuex)
 
@@ -23,7 +24,6 @@ export default new Vuex.Store({
   actions: {
     retriveToken(context, credentials) {
       return new Promise((resolve, reject) => {
-        console.log(credentials);
         UserService.login(credentials)
         .then(response => {
           const token = response.data.token;
@@ -33,7 +33,7 @@ export default new Vuex.Store({
           // console.log(response);
         })
         .catch(error => {
-          // console.log(error);
+          console.log(error);
           reject(error);
         })
      })
@@ -102,7 +102,7 @@ export default new Vuex.Store({
       axios.defaults.headers.common['Authorization'] = context.state.token;
       if (context.getters.loggedIn) {
         return new Promise((resove, reject) => {
-          axios.post('http://localhost:3000/users/logout')
+          axios.post('http://localhost:3000/api/users/logout')
           .then(response => {
             localStorage.removeItem('token')
             context.commit('destroyToken')

@@ -20,7 +20,7 @@
                                     <div class="collapse" id="submenu1" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                            <a href="/logout" class="nav-link collapsed py-1">Logout</a>
+                                                        <router-link to="/logout" class="nav-link collapsed py-1">Logout</router-link>
                                                     </li>
                                             </ul>
                                     </div> <hr>
