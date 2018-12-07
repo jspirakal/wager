@@ -65,7 +65,8 @@
         <h5 class="sub-hdg-w3l">or login with your social profile</h5>
         <ul class="social-icons-agileits-w3layouts">
             <li><a @click="authenticate('facebook')" class="fa fa-facebook"></a></li>
-            <li><a href="https://id.twitch.tv/oauth2/authorize?client_id=g3hz4vlsl4062b4s8v81v1emky74aj&redirect_uri=http://localhost:8080/login&response_type=token&scope=user_read" class="fa fa-twitch"></a></li>
+            <li><a href="https://id.twitch.tv/oauth2/authorize?client_id=n9se5ttv1djl68jpjcib9vhzv5l6fy&redirect_uri=http://localhost:8080/login&response_type=token&scope=user_read" class="fa fa-twitch"></a></li>
+            <!-- <li><a @click.prevent="loginWithTwitch" class="fa fa-twitch"></a></li> -->
 
         </ul>
     </div>
@@ -79,24 +80,27 @@ import Vue from 'vue'
 import VueAxios from 'vue-axios'
 import VueAuthenticate from 'vue-authenticate'
 import axios from 'axios';
-// import facebookLogin from 'facebook-login-vuejs';
 
 Vue.use(VueAxios, axios)
 
-    Vue.use(VueAuthenticate, {
-      baseUrl: 'http://localhost:3000/users', // Your API domain
-      
-      providers: {
-        facebook: {
-          // clientId: '417348775457290',
-          // clientSecret: 'f3d7ddd33c363a6439ed699884c24885',
-          clientId: '1124119187677827',
-          clientSecret: 'b45201165b20e66afff81356af3b5c22',
-          // redirectUri: 'http://www.wagergames.co/auth/callback' // Your client app URL
-          redirectUri: 'http://localhost:8080/auth/callback' // Your client app URL
-        }
-      }
-    })
+Vue.use(VueAuthenticate, {
+    baseUrl: 'http://localhost:3000/api/users', // Your API domain
+    
+    providers: {
+    facebook: {
+        tokenName: 'token',
+        response_type: 'token',
+        scope: ['email'],
+        // clientId: '417348775457290',
+        // clientSecret: 'f3d7ddd33c363a6439ed699884c24885',
+        appId: '291462354808106',
+        clientId: '291462354808106',
+        clientSecret: '44c44d786601319553fa31e097b24d85',
+        // redirectUri: 'http://www.wagergames.co/auth/callback' // Your client app URL
+        redirectUri: 'http://localhost:8080/auth/callback' // Your client app URL
+    }
+    }
+})
 
 export default {
     name: 'Login',
@@ -108,103 +112,144 @@ export default {
         }
     },
     methods: {
-        metamask(){
-    if (!window.web3) {
-      window.alert('Please install MetaMask first.');
-      return;
-    }
-    if (!web3) {
-      // We don't know window.web3 version, so we use our own instance of web3
-      // with provider given by window.web3
-      web3 = new Web3(window.web3.currentProvider);
-    }
-    if (!web3.eth.coinbase) {
-      window.alert('Please activate MetaMask first.');
-      return;
-    }
-    const publicAddress = web3.eth.coinbase.toLowerCase();
-    this.loginMeta( publicAddress );
-    // this.setState({ loading: true });
+        metamask() {
+            if (!window.web3) {
+                window.alert('Please install MetaMask first.');
+                return;
+            }
+            if (!web3) {
+                // We don't know window.web3 version, so we use our own instance of web3
+                // with provider given by window.web3
+                web3 = new Web3(window.web3.currentProvider);
+            }
+            if (!web3.eth.coinbase) {
+                window.alert('Please activate MetaMask first.');
+                return;
+            }
+            const publicAddress = web3.eth.coinbase.toLowerCase();
+            this.loginMeta(publicAddress);
+            // this.setState({ loading: true });
             // console.log( publicAddress );
         },
-        getUserData(){
+        getUserData() {
 
         },
-        onLogout(){
+        onLogout() {
 
         },
         login() {
             this.$store.dispatch('retriveToken', {
-                email: this.email,
-                password: this.password
-            })
-            .then(response => {
-                this.$router.push({ name: 'home' });
-            }).catch(error => {
-                this.error = "These credentials do not match our records.";
-                console.log(error);
-            });
+                    email: this.email,
+                    password: this.password
+                })
+                .then(response => {
+                    this.$router.push({
+                        name: 'home'
+                    });
+                }).catch(error => {
+                    this.error = "These credentials do not match our records.";
+                    console.log(error);
+                });
         },
-        authenticate: function(provider) {
+        authenticate: function (provider) {
+
             if (this.$auth.isAuthenticated()) {
-              this.$auth.logout()
+                this.$auth.logout()
             }
 
             this.response = null
 
             var this_ = this;
-            this.$auth.authenticate(provider).then(function (authResponse) {
+            console.log("first");
 
-                this_.$http.get('https://graph.facebook.com/v2.5/me?fields=email,name', {
-                  params: { access_token: this_.$auth.getToken() }
-                }).then(function (response) {
-                  this_.response = response
-                  this_.loginFB( response.data );
-                })
-        
+            this.$auth.authenticate(provider).then(function (authResponse) {
+                var data = null;
+
+                var xhr = new XMLHttpRequest();
+                //xhr.withCredentials = true;
+                var that = this_;
+
+                xhr.addEventListener("readystatechange", function (this_) {
+                    if (this.readyState === 4) {
+                        that.getFbDetails(JSON.parse(this.response).access_token);
+                    }
+                });
+
+                xhr.open("GET", "https://graph.facebook.com/v3.2/oauth/access_token?code="+this_.$auth.getToken()+"&client_id=291462354808106&redirect_uri=http://localhost:8080/auth/callback&client_secret=44c44d786601319553fa31e097b24d85");
+
+                xhr.send(data);
             }).catch(function (err) {
               this_.response = err
             })
-          },
-        loginMeta( address ) {
+        },
+        getFbDetails(accesstoken)
+        {
+            var this_ = this;
+            axios.get('https://graph.facebook.com/v3.2/me?fields=id,name,email,picture{url}&access_token=' + accesstoken).then(function (response) {
+                    this_.response = response;
+                    this_.$store.dispatch("retriveTokenSocial", {
+                        username: response.data.name,
+                        email: response.data.email,
+                        provider: 'facebook',
+                        photoUrl: response.data.picture.data.url
+                    })
+                    .then(response => {
+                        this_.$router.push({
+                            name: 'home'
+                        });
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+                    //this_.loginFB( response.data );
+                })
+                .catch(err => console.log(err))
+        },
+        loginMeta(address) {
             this.$store.dispatch('retriveTokenMeta', {
-                address: address
-            })
-            .then(response => {
-                this.$router.push({ name: 'home' });
-            }).catch(error => {
-                this.error = "These credentials do not match our records.";
-                console.log(error);
-            });
+                    address: address
+                })
+                .then(response => {
+                    this.$router.push({
+                        name: 'home'
+                    });
+                }).catch(error => {
+                    this.error = "These credentials do not match our records.";
+                    console.log(error);
+                });
         },
 
-        loginFB( data ) {
+        loginFB(data) {
             this.$store.dispatch('retriveTokenFB', {
-                id: data.id,
-                email: data.email,
-                name: data.name
-            })
-            .then(response => {
-                this.$router.push({ name: 'home' });
-            }).catch(error => {
-                this.error = "These credentials do not match our records.";
-                console.log(error);
-            });
+                    id: data.id,
+                    email: data.email,
+                    name: data.name
+                })
+                .then(response => {
+                    this.$router.push({
+                        name: 'home'
+                    });
+                }).catch(error => {
+                    this.error = "These credentials do not match our records.";
+                    console.log(error);
+                });
         },
 
-        loginTwitch( data ) {
+        loginTwitch(data) {
             this.$store.dispatch('retriveTokenTwitch', {
-                name: data.name,
-                email: data.email,
-                id: data._id,
-            })
-            .then(response => {
-                this.$router.push({ name: 'home' });
-            }).catch(error => {
-                this.error = "These credentials do not match our records.";
-                console.log(error);
-            });
-        },
+                    name: data.name,
+                    email: data.email,
+                    id: data._id,
+                })
+                .then(response => {
+                    this.$router.push({
+                        name: 'home'
+                    });
+                }).catch(error => {
+                    this.error = "These credentials do not match our records.";
+                    console.log(error);
+                });
+        }
 
     },
     beforeMount() {
@@ -218,27 +263,27 @@ export default {
 
         const parsedParams = {};
         window.location.hash.split('&')
-          .map(part => part.replace(/#/, ''))
-          .forEach(param => {
-            const parts = param.split('=');
-            parsedParams[parts[0]] = parts[1];
-          })
+            .map(part => part.replace(/#/, ''))
+            .forEach(param => {
+                const parts = param.split('=');
+                parsedParams[parts[0]] = parts[1];
+            })
 
-          console.log('--- Out')
-          if(parsedParams.access_token != undefined){
+        console.log('--- Out')
+        if (parsedParams.access_token != undefined) {
             console.log('--- In')
-                this.$http.get('https://api.twitch.tv/kraken/user', {
-                  params: { },
-                  headers: {
+            this.$http.get('https://api.twitch.tv/kraken/user', {
+                params: {},
+                headers: {
                     'Client-ID': 'g3hz4vlsl4062b4s8v81v1emky74aj',
                     'Authorization': `OAuth ${parsedParams.access_token}`
-                  }
-                }).then(function (response) {
-                    this_.loginTwitch( response.data );
-                  // this_.loginFB( response.data );
-                })
-          }
-          // console.log(parsedParams);
+                }
+            }).then(function (response) {
+                this_.loginTwitch(response.data);
+                // this_.loginFB( response.data );
+            })
+        }
+        // console.log(parsedParams);
 
     },
     beforeDestroy() {
@@ -246,6 +291,50 @@ export default {
         var stylesheet = document.getElementById('auth');
         stylesheet.parentNode.removeChild(stylesheet);
     },
+    mounted() {
+        // this.FB;
+        // login(function(response) {
+        //     if (response.authResponse) {
+        //     console.log('Welcome!  Fetching your information.... ');
+        //     FB.api('/me', function(response) {
+        //     console.log('Good to see you, ' + response.name + '.');
+        //     });
+        //     } else {
+        //     console.log('User cancelled login or did not fully authorize.');
+        //     }
+        // });
+    }
 }
 </script>
 
+
+
+                // axios.get('https://graph.facebook.com/v3.2/oauth/access_token?code='+this_.$auth.getToken()+'&client_id=291462354808106&redirect_uri=http://localhost:8080/auth/callback&client_secret=44c44d786601319553fa31e097b24d85',
+                // {
+                //     headers: { 
+                //         "Postman-Token": "3c124eae-d9c3-4325-8f43-93c4bc743694",
+                //         "Cache-Control": "no-cache",
+                //         "authorization": this_.$auth.getToken()
+                //     } 
+                // })
+                // .then(res => console.log(res))
+                // // axios.get('https://graph.facebook.com/v3.2/me?fields=id,name&access_token=' + this_.$auth.getToken()).then(function (response) {
+                // //         this_.response = response;
+                // //         console.log(response);
+                // //         //this_.loginFB( response.data );
+                // //     })
+                // //     .catch(err => console.log(err))
+                
+            
+            // //console.log(FB);
+            // FB.login(function(response) {
+            //     if (response.authResponse) {
+            //     console.log('Welcome!  Fetching your information.... ');
+            //     FB.api('/me', function(response) {
+            //     console.log(response);
+            //     });
+            //     } else {
+            //     console.log('User cancelled login or did not fully authorize.');
+            //     }
+            // }, {scope: 'email'}   );
+            // return;

@@ -37,6 +37,22 @@ export default new Vuex.Store({
           reject(error);
         })
      })
+    },
+    retriveTokenSocial(context, credentials) {
+      return new Promise((resolve, reject) => {
+        axios.post("http://localhost:3000/api/users/auth/facebook", credentials)
+        .then(response => {
+          const token = response.data.token;
+          localStorage.setItem('token', token);
+          context.commit('retriveToken', token);
+          resolve(response);
+          // console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+          reject(error);
+        })
+     })
     },    
     retriveTokenMeta(context, credentials) {
       return new Promise((resolve, reject) => {
@@ -80,7 +96,7 @@ export default new Vuex.Store({
     retriveTokenTwitch(context, credentials) {
       return new Promise((resolve, reject) => {
 
-        axios.post('http://localhost:3000/users/auth/twitch', {
+        axios.post('http://localhost:3000/api/users/auth/twitch', {
           name: credentials.name,
           email: credentials.email,
           id: credentials.id
