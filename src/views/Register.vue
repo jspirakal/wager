@@ -21,7 +21,7 @@
        
         <div class="fields-w3-agileits">
             <span class="fa fa-envelope" aria-hidden="true"></span>
-            <input v-model="email" id="email" type="text" class="form-control" name="email" value="" required autofocus placeholder="email">
+            <input ref="email" v-model="email" id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" name="email" value="" required autofocus placeholder="email">
         </div>
        <span class="invalid-feedback" role="alert" style="color: red; margin-bottom: 10px; display: block;">
                                         <strong v-if="error">{{ error }}</strong>
@@ -45,7 +45,8 @@
                                         <strong v-if="errorPassword">{{ errorPassword }}</strong>
                                   
         </span>
-        <input type="submit" value="Register" />
+        <input type="submit" value="Register" /><br>
+        <div v-if="load" class="lds-ring"><div></div><div></div><div></div><div></div></div>
     </form>
     <!--// main-w3layouts-form -->
     <!-- Social icons -->
@@ -97,7 +98,8 @@ export default {
             password: '',
             passwordConfirm: '',
             error: null,
-            errorPassword: null
+            errorPassword: null,
+            load: false
         }
     },
      beforeMount() {
@@ -142,6 +144,7 @@ export default {
                 this.errorPassword = "Password and passwordConfirm did't mcatched"
                 return false;
             }
+            this.load = true;
             this.$store.dispatch('register', {
                 username: this.name,
                 email: this.email,
@@ -149,7 +152,18 @@ export default {
                 // passwordConfirm: this.passwordConfirm
             })
             .then(response => {
-                this.$router.push({ name: 'home' });
+                this.$store.dispatch('retriveToken', {
+                    email: this.email,
+                    password: this.password
+                })
+                .then(response => {
+                    this.$router.push({
+                        name: 'home'
+                    });
+                }).catch(error => {
+                    this.error = "These credentials do not match our records.";
+                    console.log(error);
+                });
             }).catch(error => {
                 console.log(error);
             })
@@ -226,10 +240,55 @@ export default {
                 })
                 .catch(err => console.log(err))
         },
-    } 
+    },
+    mounted() {
+        this.$refs.email.oninvalid = function(e) {
+            if(!e.target.value || e.target.value == '')
+                e.target.setCustomValidity("Please fill out this field")
+            else
+                e.target.setCustomValidity("Please enter good email e.x name@mail.com")
+        }
+        this.$refs.email.oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
 }
 </script>
 
 <style>
-
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 </style>
