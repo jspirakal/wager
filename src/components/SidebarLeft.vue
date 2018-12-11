@@ -20,22 +20,29 @@
                                     <div class="collapse" id="submenu1" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                        <router-link to="/logout" class="nav-link collapsed py-1">Logout</router-link>
+                                                            <a href="/logout" class="nav-link collapsed py-1">Logout</a>
                                                     </li>
                                             </ul>
                                     </div> <hr>
                             </li>
                             
                             <li class="nav-item">
-                                    <a class="nav-link collapsed" href="#submenu2" data-toggle="collapse" data-target="#submenu2">Play</a>
+                                    <a class="nav-link collapsed" href="#submenu2" data-toggle="collapse" data-target="#submenu2">Play Games</a>
                                     <div class="collapse" id="submenu2" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
+                                                            <a href="steam://run/730" class="nav-link collapsed py-1">CS:GO</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
+                                                            <a href="steam://run/570" class="nav-link collapsed py-1">DotA 2</a>
                                                     </li>
+                                                               <li class="nav-item">
+                                                            <a href="steam://run/578080" class="nav-link collapsed py-1">PUBG</a>
+                                                    </li>
+                                                                 <li class="nav-item">
+                                                            <a href="steam://run/252950" class="nav-link collapsed py-1">Rocket League</a>
+                                                    </li>
+                                                    
                                             </ul>
                                     </div> <hr>
                             </li>
@@ -53,15 +60,15 @@
                                     </div> <hr>
                             </li>
                             <li class="nav-item">
-                                    <a class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Sponsor</a>
+                                    <a  class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Sponsor</a>
+                                    
                                     <div class="collapse" id="submenu4" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
+                                                        
+                                                            <li class="nav-item" ><a id="b" href="#" class="nav-link collapsed py-1">Coming soon</a> </li>
+                                
+                                                        <li class="nav-item">     <a id="b" href="#" class="nav-link collapsed py-1">Coming soon</a></li>
                                             </ul>
                                     </div> <hr>
                             </li>
@@ -161,10 +168,7 @@
                                     <div class="collapse" id="submenu12" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
+                                                            <a href="http://wagergames.freeforums.net/" class="nav-link collapsed py-1">Enter forum</a>
                                                     </li>
                                             </ul>
                                     </div> <hr>
@@ -184,3 +188,25 @@ export default {
     }
 }
 </script>
+
+<style>
+ul#line2 a#a {
+  display: inline;
+}
+
+ul#line2:hover a#a {
+  display: none;
+  
+}
+
+ul#line2 a#b {
+  display: none;
+}
+
+ul#line2:hover a#b {
+  display: inline;
+    color: yellow
+}
+
+</style>
+
