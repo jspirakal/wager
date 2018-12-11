@@ -5,16 +5,35 @@ import Login from './views/Login.vue';
 import Register from './views/Register.vue';
 import Logout from '@/components/auth/Logout.vue';
 import Portfolio from './views/Portfolio.vue';
+import Termsandconditions from './views/Termsandconditions.vue'
+import Media from './views/Media.vue'
+import Privacypolicy from './views/PrivacyPolicy.vue'
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    
+    {
+      path: '/media',
+      name: 'media',
+      component: Media
+    },
     {
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/termsandconditions',
+      name: 'termsandconditions',
+      component: Termsandconditions
+    },
+    {
+      path: '/privacypolicy',
+      name: 'privacypolicy',
+      component: Privacypolicy
     },
     {
       path: '/login',
@@ -47,6 +66,7 @@ export default new Router({
       meta: {
         requiresAuth: true,
       }
-    },
+    }
+  
   ]
 })
