@@ -1,8 +1,10 @@
 <template>
     <div class="col-md-8 main-content">
-                                 
+            
+   
+                       
                                       
-                                <h5 class="heading-80"><div class="online"></div>Live Streaming  Tournaments</h5>
+                                <h5 class="heading-80"><div class="online"></div>Live Streaming Tournaments</h5>
                                 <div class="tournaments">
                                 <div>
                                         <div class="tournament" style="background: url('img/tournament1.png'); background-repeat: no-repeat; height: 270px; background-position: center; ">
@@ -13,7 +15,7 @@
 
                                                 <div class="bottom">
                                                         <h5>1 M WGT</h5>
-                                                                <h5>Price Pool</h5>
+                                                                <h5>Prize Pool</h5>
                                                 </div>
                                         </div>
                                                         <div class="footer mt-2">
@@ -25,13 +27,13 @@
                                 <div>
                                         <div class="tournament" style="background: url('img/tournament2.png'); background-repeat: no-repeat; height: 270px; background-position: center; ">
                                                 <div class="top">
-                                                                <h5>FORTNIGHT</h5>
+                                                                <h5>FORTNITE</h5>
                                                                 <h5>UK Vs AUS</h5>
                                                 </div>
 
                                                         <div class="bottom">
                                                                 <h5>2 M WGT</h5>
-                                                                <h5>Price Pool</h5>
+                                                                <h5>Prize Pool</h5>
                                                         </div>
                                                 
                                                 </div>
@@ -44,13 +46,13 @@
                                 <div>
                                         <div class="tournament" style="background: url('img/tournament3.png'); background-repeat: no-repeat; height: 270px; background-position: center; ">
                                                 <div class="top">
-                                                                <h5>LoL</h5>
+                                                                <h5>FIFA</h5>
                                                                 <h5>UK Vs Russia</h5>
                                                 </div>
 
                                                         <div class="bottom">
                                                                 <h5>1 M WGT</h5>
-                                                                <h5>Price Pool</h5>
+                                                                <h5>Prize Pool</h5>
                                                         </div>
                                                 </div>
                                                 <div class="footer mt-2">
@@ -68,7 +70,7 @@
 
                                                         <div class="bottom">
                                                                 <h5>1 M WGT</h5>
-                                                                <h5>Price Pool</h5>
+                                                                <h5>Prize Pool</h5>
                                                         </div>
                                                 </div>
                                                 <div class="footer mt-2">
@@ -89,13 +91,13 @@
                                                 <div>
                                                         <div class="tournament" style="background: url('img/event1.png'); background-repeat: no-repeat; height: 270px; background-position: center; ">
                                                                 <div class="top">
-                                                                        <h5>LoL</h5>
+                                                                        <h5>CS:GO</h5>
                                                                         <h5>UK Vs Russia</h5>
                                                                 </div>
                 
                                                                 <div class="bottom">
                                                                         <h5>1 M WGT</h5>
-                                                                                <h5>Price Pool</h5>
+                                                                                <h5>Prize Pool</h5>
                                                                 </div>
                                                         </div>
                                                                         <div class="footer mt-2">
@@ -107,13 +109,13 @@
                                                 <div>
                                                         <div class="tournament" style="background: url('img/event2.png'); background-repeat: no-repeat; height: 270px; background-position: center; ">
                                                                 <div class="top">
-                                                                                <h5>FORTNIGHT</h5>
+                                                                                <h5>DOTA 2</h5>
                                                                                 <h5>UK Vs AUS</h5>
                                                                 </div>
                 
                                                                         <div class="bottom">
                                                                                 <h5>2 M WGT</h5>
-                                                                                <h5>Price Pool</h5>
+                                                                                <h5>Prize Pool</h5>
                                                                         </div>
                                                                 
                                                                 </div>
@@ -126,13 +128,13 @@
                                                 <div>
                                                         <div class="tournament" style="background: url('img/event3.png'); background-repeat: no-repeat; height: 270px; background-position: center; ">
                                                                 <div class="top">
-                                                                                <h5>LoL</h5>
+                                                                                <h5>PUBG</h5>
                                                                                 <h5>UK Vs Russia</h5>
                                                                 </div>
                 
                                                                         <div class="bottom">
                                                                                 <h5>1 M WGT</h5>
-                                                                                <h5>Price Pool</h5>
+                                                                                <h5>Prize Pool</h5>
                                                                         </div>
                                                                 </div>
                                                                 <div class="footer mt-2">
@@ -150,7 +152,7 @@
                 
                                                                         <div class="bottom">
                                                                                 <h5>1 M WGT</h5>
-                                                                                <h5>Price Pool</h5>
+                                                                                <h5>Prize Pool</h5>
                                                                         </div>
                                                                 </div>
                                                                 <div class="footer mt-2">
@@ -161,7 +163,7 @@
                                                 </div>
                                                 
                                                 </div>
-                                                <h5 class="heading-80">Upcomming Events</h5>
+                                                <h5 class="heading-80">Upcoming Events</h5>
                                                 
                                                 <ul class="nav-md">
                                                         <li><a href="#">USA</a></li>
@@ -211,7 +213,8 @@
                                                 </div>
                                                 </div>
 
-                                                <h5 class="heading-80 mb-5 mt-5">Latest News </h5>
+                                                <h5 class="heading-80 mb-5 mt-5">Latest News
+ </h5>
                                                 <div class="row main-news">
                                                         <div class="col-md-3">
                                                                 <img src="img/news1.png" alt="">
@@ -231,13 +234,27 @@
                                                                 <p class="news">US Secret Service Asks Congress For Help 
                                                                                 to Prevent illicit Use Of Privacy Coins</p>
                                                         </div>
+                                                             
+  
                                                 </div>
+                                                
                             </div>
+                            
                            
 </template>
 
 <script>
 export default {
-    name: 'MainContent'
+  name: 'MainContent'
 }
+
 </script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9812631898225276",
+    enable_page_level_ads: true
+  });
+</script>
+
+
