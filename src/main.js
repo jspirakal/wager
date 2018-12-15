@@ -2,8 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import BootstrapVue from 'bootstrap-vue'
 
 Vue.config.productionTip = false
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
@@ -28,6 +31,8 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
+
+Vue.use(BootstrapVue);
 
 new Vue({
   router,

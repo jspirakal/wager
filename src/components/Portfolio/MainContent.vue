@@ -3,47 +3,24 @@
         <div class="row">
                 <div class="col-md-6">
                         <h5 class="heading">Current Teams</h5>
+                        <i @click="showTeamModal" class="fa fa-pencil fa-1x"></i>  
                         <div class="current-team">
-                            <div>
-                                    <img src="img/current_team1.png" alt="Team 1">
-                                    <h5>Team Name</h5>
+                            <div v-for="(item, key) of data.currentTeam" :key="key" @click="showTeamModal(true, key)">
+                                    <img :src="item.imgPath" alt="Team 1">
+                                    <h5>{{item.name}}</h5>
                             </div>
-                            <div>
-                                    <img src="img/current_team2.png" alt="Team 2">
-                                    <h5>Team Name</h5>
-                            </div>
-                            <div>
-                                    <img src="img/current_team1.png" alt="Team 1">
-                                    <h5>Team Name</h5>
-                            </div>
-                            <div>
-                                    <img src="img/current_team2.png" alt="Team 2">
-                                    <h5>Team Name</h5>
-                            </div>
-                            
-                            </div>
+                        </div>
                 </div>
                 <div class="col-md-6">
                         <h5 class="heading">Past Teams</h5>
+                        <i @click="showTeamModal(false)" class="fa fa-pencil fa-1x"></i>
                         <div class="current-team">
-                            <div>
-                                    <img src="img/past_team1.png" alt="Team 1">
-                                    <h5>Team Name</h5>
-                            </div>
-                            <div>
-                                    <img src="img/past_team2.png" alt="Team 2">
-                                    <h5>Team Name</h5>
-                            </div>
-                            <div>
-                                    <img src="img/past_team1.png" alt="Team 1">
-                                    <h5>Team Name</h5>
-                            </div>
-                            <div>
-                                    <img src="img/past_team2.png" alt="Team 2">
-                                    <h5>Team Name</h5>
+                            <div v-for="(item, key) of data.pastTeam" :key="key" @click="showTeamModal(false, key)">
+                                    <img :src="item.imgPath" alt="Team 1">
+                                    <h5>{{item.name}}</h5>
                             </div>
                             
-                            </div>
+                        </div>
                 </div>
         </div>
         <div class="row">
@@ -80,14 +57,15 @@
         <div class="row">
             <div class="col-md-12">
                     <h5 class="heading">Achivements</h5> 
+                    <i @click="showAchievementModal()" class="fa fa-pencil fa-1x"></i>
                     <div class="achivements">
-                            <div>
-                                    <img src="img/achivement1.png" alt="">
-                                    <h5 class="rank">1st</h5>
-                                    <h5>April 2018</h5>
-                                    <h5>Stadium 2018</h5>
+                            <div @click="showAchievementModal(index)" v-for="(item, index) of data.acheivements" :key="index">
+                                    <img :src="item.imgPath" alt="">
+                                    <h5 class="rank">{{item.acheivementName}}</h5>
+                                    <h5>{{(item.dateOfAcheivement.split('T'))[0]}}</h5>
+                                    <h5>{{item.venueOfAcheivemnet}}</h5>
                             </div>
-                            <div>
+                            <!-- <div>
                                     <img src="img/achivement2.png" alt="">
                                     <h5 class="rank">1st</h5>
                                     <h5>MPL GG</h5>
@@ -116,7 +94,7 @@
                                     <h5 class="rank">1st</h5>
                                     <h5>Louvae Assembly</h5>
                                     <h5>Stadium 2018</h5>
-                            </div>
+                            </div> -->
                     </div>
             </div>
     </div>
@@ -163,12 +141,71 @@
                             </div>
                     </div>
             </div>
+            <!-- Modal Component -->
+        <b-modal ref="teamModal" id="modal1" title="Edit Team" hide-footer>
+            <EditTeam :request="(Object.keys(this.data).length == 0) ? 'post' : 'put'" @submit="closeTeamModal" :type="teamToEdit.type" :data="teamToEdit.data" :team="editTeamItem" />
+        </b-modal>
+        <b-modal ref="achievementModal" id="modal2" title="Edit Achievement" hide-footer>
+            <EditAchievement 
+            :request="(Object.keys(this.data).length == 0) ? 'post' : 'put'" 
+            @submit="closeAchievementModal" 
+            :index="editAchievementItem" 
+            :data="data.acheivements ? data.acheivements : []"  />
+        </b-modal>
         </div>
+        
 </template>
 
 <script>
+import EditTeam from '@/components/forms/EditTeam';
+import EditAchievement from '@/components/forms/EditAchievement';
+import UserService from '@/services/UserService';
+import { mapGetters, mapActions } from "vuex";
+
 export default {
-    name: 'MainContent'
+    name: 'MainContent',
+    components: {
+        EditTeam,
+        EditAchievement
+    },
+    props: ["data"],
+    data() {
+        return  {
+                teamToEdit: "",
+                editTeamItem: false,
+                editAchievementItem: false
+        }
+    },
+    computed: {
+        fields() {
+            return this.newData || this.data;
+        }
+    },
+    methods: {
+            showTeamModal(current = true, edit = false)
+            {
+                this.teamToEdit = current ? {data:this.data.currentTeam, type: 'currentTeam'} : {data:this.data.pastTeam, type: 'pastTeam'};
+                this.editTeamItem = edit;
+                this.$refs.teamModal.show();
+            },
+            closeTeamModal(res)
+            {
+                if(this.editTeamItem !== false)
+                        this.$emit("refresh");
+                this.$refs.teamModal.hide();
+            },
+            showAchievementModal(edit = false)
+            {
+                this.editAchievementItem = edit;
+                this.$refs.achievementModal.show();
+            },
+            closeAchievementModal()
+            {
+                if(this.editAchievementItem !== false)
+                        this.$emit("refresh");
+                this.$refs.achievementModal.hide();
+            }
+    }
 }
 </script>
 

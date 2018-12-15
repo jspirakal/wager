@@ -1,7 +1,7 @@
 <template>
       <div class="row">
         <div class="col-md-12 pl-0 pr-0">
-                <h5 class="heading">Your Brands</h5>
+                <h5 class="heading">Your Brands<switches style="vertical-align: middle; float: right; margin-right: 20px" v-model="enabled" theme="bootstrap" color="success"></switches></h5>
                 <div class="row">
                         <div class="col brand">
                                 <p>Blacer T Shirt </p>
@@ -39,8 +39,17 @@
 </template>
 
 <script>
+import Switches from 'vue-switches';
 export default {
-    name: 'Brands'
+    name: 'Brands',
+    components: {
+            Switches
+    },
+    data() {
+            return {
+                    enabled: true
+            }
+    }
 }
 </script>
 

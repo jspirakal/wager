@@ -7,11 +7,22 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     token: localStorage.getItem('token') || null,
+    user: null
   },
   getters: {
     loggedIn(state) {
-      return state.token != null;
-    }
+      return (state.token != null);
+    },
+    getUserId(state) {
+      console.log(state.user);
+      return state.user ? state.user._id : null
+    },
+    getUserData(state) {
+      return state.user;
+    },
+    // getUserAdditionalData(state) {
+    //   return UserService.getAdditionalData(state.user.id);
+    // }
   },
   mutations: {
     retriveToken(state, token) {
@@ -19,6 +30,9 @@ export default new Vuex.Store({
     },
     destroyToken(state) {
       state.token = null;
+    },
+    'SET_PROFILE'(state, data) {
+      state.user = data;
     }
   },
   actions: {
@@ -148,6 +162,11 @@ export default new Vuex.Store({
             reject(error);
           })
      })
+    },
+    async getProfile({commit, state}) {
+      console.log("getting profile");
+      let res = await UserService.getProfile(state.token)
+      commit("SET_PROFILE", res.data);
     }
   }
 })

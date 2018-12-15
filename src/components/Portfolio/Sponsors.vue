@@ -1,7 +1,7 @@
 <template>
       <div class="row">
             <div class="col-md-12 pl-0 pr-0">
-                    <h5 class="heading">Sponsors</h5>
+                    <h5 class="heading">Sponsors<switches style="vertical-align: middle; float: right; margin-right: 20px" v-model="enabled" theme="bootstrap" color="success"></switches></h5>
                     <div class="sponsors">
                             <div>
                                     <img src="img/sponsor_nike.png" alt="">
@@ -40,8 +40,17 @@
 </template>
 
 <script>
+import Switches from 'vue-switches';
 export default {
-    name: 'Sponsors'
+    name: 'Sponsors',
+    components: {
+            Switches
+    },
+    data() {
+            return {
+                    enabled: true
+            }
+    }
 }
 </script>
 

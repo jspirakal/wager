@@ -4,8 +4,8 @@ export function get(url, params) {
     return new Promise(function (resolve, reject) {
         axios.get(url, { params: params })
             .then(response => {
-                if (response.data.success) {
-                    resolve(response.data.data);
+                if (response) {
+                    resolve(response);
                 }
                 else {
                     reject();
@@ -40,8 +40,8 @@ export function put(url, payload) {
     return new Promise(function (resolve, reject) {
         axios.put(url, payload)
             .then(response => {
-                if (response.data.success) {
-                    resolve(response.data.data);
+                if (response.data) {
+                    resolve(response);
                 }
                 else {
                     reject();
@@ -81,9 +81,8 @@ export function postMultipart(url, formData) {
     return new Promise(function (resolve, reject) {
         axios.post(url, formData, config)
             .then(response => {
-                if (response.data.success) {
-                    resolve(response.data.data);
-                }
+                if (response)
+                    resolve(response);
                 else {
                     reject();
                 }

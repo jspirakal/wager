@@ -12,7 +12,19 @@ export function register(payload) {
   return api.post(resourceUrl, payload);
 }
 
+export function getProfile(token) {
+  const resourceUrl = BASE_URL + 'profile';
+  return api.post(resourceUrl, {token});
+}
+
+export function getAdditionalData(userId) {
+  const resourceUrl = BASE_URL + userId + "/bio";
+  return api.get(resourceUrl);
+}
+
 export default {
   login,
-  register
+  register,
+  getProfile,
+  getAdditionalData
 }
