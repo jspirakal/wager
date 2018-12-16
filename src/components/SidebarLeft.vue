@@ -65,23 +65,31 @@
                                     <div class="collapse" id="submenu4" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                        
-                                                            <li class="nav-item" ><a id="b" href="#" class="nav-link collapsed py-1">Coming soon</a> </li>
-                                
-                                                        <li class="nav-item">     <a id="b" href="#" class="nav-link collapsed py-1">Coming soon</a></li>
+                                                                  <div class="active" id="line1"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Teams</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+              <div class="active" id="line2"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Players</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+            
+                                                       </li>
                                             </ul>
                                     </div> <hr>
                             </li>
-                            <li class="nav-item">
-                                    <a class="nav-link collapsed" href="#submenu5" data-toggle="collapse" data-target="#submenu5">Hire</a>
-                                    <div class="collapse" id="submenu5" aria-expanded="false">
+                                                       <li class="nav-item">
+                                    <a  class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Hire</a>
+                                    
+                                    <div class="collapse" id="submenu4" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
+                                                                  <div class="active" id="line1"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Teams</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+              <div class="active" id="line2"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Players</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+            
+                                                       </li>
                                             </ul>
                                     </div> <hr>
                             </li>
@@ -98,68 +106,86 @@
                                             </ul>
                                     </div> <hr>
                             </li>
-                            <li class="nav-item">
-                                    <a class="nav-link collapsed" href="#submenu7" data-toggle="collapse" data-target="#submenu7">Fundraise</a>
-                                    <div class="collapse" id="submenu7" aria-expanded="false">
+                                                               <li class="nav-item">
+                                    <a  class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Fundraise</a>
+                                    
+                                    <div class="collapse" id="submenu4" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">Teams</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">Clubs</a>
-                                                    </li>
+                                                                  <div class="active" id="line1"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Teams</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+              <div class="active" id="line2"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Players</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+            
+                                                       </li>
                                             </ul>
                                     </div> <hr>
                             </li>
-                            <li class="nav-item">
-                                    <a class="nav-link collapsed" href="#submenu8" data-toggle="collapse" data-target="#submenu8">Leader Board</a>
-                                    <div class="collapse" id="submenu8" aria-expanded="false">
+                                                               <li class="nav-item">
+                                    <a  class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Leaderboard</a>
+                                    
+                                    <div class="collapse" id="submenu4" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
+                                                                  <div class="active" id="line1"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Teams</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+              <div class="active" id="line2"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Players</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+            
+                                                       </li>
                                             </ul>
                                     </div> <hr>
                             </li>
-                            <li class="nav-item">
-                                    <a class="nav-link collapsed" href="#submenu9" data-toggle="collapse" data-target="#submenu9">Events</a>
-                                    <div class="collapse" id="submenu9" aria-expanded="false">
+                                                              <li class="nav-item">
+                                    <a  class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Events</a>
+                                    
+                                    <div class="collapse" id="submenu4" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
+                                                                  <div class="active" id="line1"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Create an event</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+              <div class="active" id="line2"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Buy tickets</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+            
+                                                       </li>
                                             </ul>
                                     </div> <hr>
                             </li>
-                            <li class="nav-item">
-                                    <a class="nav-link collapsed" href="#submenu10" data-toggle="collapse" data-target="#submenu10">Streaming </a>
-                                    <div class="collapse" id="submenu10" aria-expanded="false">
+                                                                <li class="nav-item">
+                                    <a  class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Streaming</a>
+                                    
+                                    <div class="collapse" id="submenu4" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
+                                                                  <div class="active" id="line1"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Watch streams</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+
+            
+                                                       </li>
                                             </ul>
                                     </div> <hr>
                             </li>
-                            <li class="nav-item">
-                                    <a class="nav-link collapsed" href="#submenu11" data-toggle="collapse" data-target="#submenu11">Results</a>
-                                    <div class="collapse" id="submenu11" aria-expanded="false">
+                                                                 <li class="nav-item">
+                                    <a  class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Results</a>
+                                    
+                                    <div class="collapse" id="submenu4" aria-expanded="false">
                                             <ul class="flex-column pl-4 nav">
                                                     <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                            <a href="#" class="nav-link collapsed py-1">coming soon</a>
-                                                    </li>
+                                                                  <div class="active" id="line1"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Teams</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+              <div class="active" id="line2"> 
+             <li><a class="" href="#" id="a" style="text-decoration: none;">Players</a> 
+            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a></li></div>
+            
+                                                       </li>
                                             </ul>
                                     </div> <hr>
                             </li>

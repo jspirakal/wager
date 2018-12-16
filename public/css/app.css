@@ -6,9 +6,8 @@
   font-weight: normal;
   font-style: normal; }
 
-body {
-  background-color: #050510 !important;
-  font-family: 'Open Sans', sans-serif; }
+  body {
+    background:url("../img/matches_bg.png") top right no-repeat ; background-attachment:fixed; background-size:100%}
 
 header {
   margin-top: 50px; 
