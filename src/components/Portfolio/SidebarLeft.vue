@@ -72,8 +72,6 @@
 
 <script>
 export default {
-    data:function(){
-    },
     name: 'SidebarLeft'
 }
 </script>

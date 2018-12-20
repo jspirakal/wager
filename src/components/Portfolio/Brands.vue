@@ -2,8 +2,9 @@
   <div class="row switch-container">
     <div class="col-md-12 pl-0 pr-0">
       <h5 class="heading">Your Brands
-        <switches style="vertical-align: middle; float: right; margin-right: 20px" v-model="enabled" theme="bootstrap"
+        <switches style="vertical-align: middle; float: right; margin-right: 60px" v-model="enabled" theme="bootstrap"
           color="success"></switches>
+        <i @click="showModal" class="fa fa-pencil fa-1x"></i>  
       </h5>
       <div class="row brands-list">
         <div class="col brand">
@@ -39,19 +40,29 @@
         <div class="disabled-overlay" v-if="enabled == false"></div>
       </div>
     </div>
+    <b-modal ref="brandModal" id="modal1" title="Edit Brand" hide-footer>
+        <EditBrand  />
+    </b-modal>
   </div>
 </template>
 
 <script>
 import Switches from 'vue-switches';
+import EditBrand from '@/components/forms/EditBrand';
 export default {
   name: 'Brands',
   components: {
-    Switches
+    Switches,
+    EditBrand
   },
   data() {
     return {
       enabled: true
+    }
+  },
+  methods: {
+    showModal() {
+      this.$refs.brandModal.show();
     }
   }
 }
