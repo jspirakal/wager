@@ -76,6 +76,9 @@ export default {
 </script>
 
 <style>
+    .profile {
+        background-image: url('~@/assets/cover.jpg');
+    }
     #modal1 {
         color: black;
     }
