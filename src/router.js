@@ -7,6 +7,7 @@ import Logout from '@/components/auth/Logout.vue';
 import Portfolio from './views/Portfolio.vue';
 import Termsandconditions from './views/Termsandconditions.vue'
 import Media from './views/Media.vue'
+import Team from './views/Team.vue'
 import Privacypolicy from './views/PrivacyPolicy.vue'
 Vue.use(Router)
 
@@ -66,7 +67,14 @@ export default new Router({
       meta: {
         requiresAuth: true,
       }
+    },
+    {
+      path: '/team',
+      name: 'team',
+      component: Team,
+      meta: {
+        requiresAuth: true,
+      }
     }
-  
   ]
 })
