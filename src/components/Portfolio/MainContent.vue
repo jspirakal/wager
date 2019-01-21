@@ -65,36 +65,6 @@
                                     <h5>{{(item.dateOfAcheivement.split('T'))[0]}}</h5>
                                     <h5>{{item.venueOfAcheivemnet}}</h5>
                             </div>
-                            <!-- <div>
-                                    <img src="img/achivement2.png" alt="">
-                                    <h5 class="rank">1st</h5>
-                                    <h5>MPL GG</h5>
-                                    <h5>Stadium 2018</h5>
-                            </div>
-                            <div>
-                                    <img src="img/achivement3.png" alt="">
-                                    <h5 class="rank">1st</h5>
-                                    <h5>Louvae Assembly</h5>
-                                    <h5>Stadium 2018</h5>
-                            </div>
-                            <div>
-                                    <img src="img/achivement1.png" alt="">
-                                    <h5 class="rank">1st</h5>
-                                    <h5>April 2018</h5>
-                                    <h5>Stadium 2018</h5>
-                            </div>
-                            <div>
-                                    <img src="img/achivement2.png" alt="">
-                                    <h5 class="rank">1st</h5>
-                                    <h5>MPL GG</h5>
-                                    <h5>Stadium 2018</h5>
-                            </div>
-                            <div>
-                                    <img src="img/achivement3.png" alt="">
-                                    <h5 class="rank">1st</h5>
-                                    <h5>Louvae Assembly</h5>
-                                    <h5>Stadium 2018</h5>
-                            </div> -->
                     </div>
             </div>
     </div>
@@ -173,7 +143,8 @@ export default {
         return  {
                 teamToEdit: "",
                 editTeamItem: false,
-                editAchievementItem: false
+                editAchievementItem: false,
+                modalComponent: EditTeam
         }
     },
     computed: {

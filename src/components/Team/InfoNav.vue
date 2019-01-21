@@ -5,7 +5,7 @@
 	   <span>Team ID : 2731</span>
 	   <span>vacant CS : GO  &nbsp; &nbsp; Player</span>
 	 </div>
-	   <a class="link-blue" href="#">Apply</a>
+	   <a class="link-blue" @click="$emit('invite')" href="#">Invite</a>
   </div>
 </template>
 

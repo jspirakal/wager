@@ -48,8 +48,7 @@ export function put(url, payload) {
                 }
             })
             .catch(error => {
-                console.log(error.response.data);
-                reject(error.response.data);
+                reject(error);
             });
     })
 }

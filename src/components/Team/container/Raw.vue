@@ -1,114 +1,30 @@
 <template>
 	<div>
 		<!--====================================START-RAW _1================================-->
-		<div class="raw1">
+		<div class="raw1" style="position: relative">
 			<div class="nav">
 				<span style="background:#5a5859 ">Home</span>
 				<span>Lol</span>
 				<span>PUBG</span>
 				<span>CS : GO</span>
 			</div>
-			<div class="col_1">
-				<div class="block">
-					<p>2 Team Owners</p>
-					<div class="box">
+			<div v-if="data" class="col_1" style="height: 320px">
+				<div v-if="data.selectedPlayers.length" class="block">
+					<p>Selected Players</p>
+					<div style="padding-left: 10px" v-for="(player, i) in data.selectedPlayers" :key="i" class="box">
 						<!--box-->
 						<center>
 							<img src="img/p1.jpg" />
-							<span>Nikon </span>
-						</center>
-					</div>
-					<!--end-box-->
-					<div class="box">
-						<!--box-->
-						<center>
-							<img src="img/p2.jpg" />
-							<span>Nikon </span>
+							<span>{{player	}}</span>
 						</center>
 					</div>
 					<!--end-box-->
 				</div>
-				<!--block-->
-
-				<div class="block">
-					<p>8 Managers</p>
-					<div class="box">
-						<!--box-->
-						<center>
-							<img src="img/p1.jpg" />
-							<span>Name </span>
-						</center>
-					</div>
-					<!--end-box-->
-					<div class="box">
-						<!--box-->
-						<center>
-							<img src="img/p2.jpg" />
-							<span>Name </span>
-						</center>
-					</div>
-					<!--end-box-->
-					<div class="box">
-						<!--box-->
-						<center>
-							<img src="img/p1.jpg" />
-							<span>Name </span>
-						</center>
-					</div>
-					<!--end-box-->
-					<div class="box">
-						<!--box-->
-						<center>
-							<img src="img/p2.jpg" />
-							<span>Name </span>
-						</center>
-					</div>
-					<!--end-box-->
-				</div>
-				<!--block-->
-
-				<div class="block">
-					<p>LoL Players</p>
-					<div class="box">
-						<!--box-->
-						<center>
-							<img src="img/p1.jpg" />
-							<span>Name </span>
-						</center>
-					</div>
-					<!--end-box-->
-					<div class="box">
-						<!--box-->
-						<center>
-							<img src="img/p2.jpg" />
-							<span>Name </span>
-						</center>
-					</div>
-					<!--end-box-->
-					<div class="box">
-						<!--box-->
-						<center>
-							<img src="img/p1.jpg" />
-							<span>Name </span>
-						</center>
-					</div>
-					<!--end-box-->
-					<div class="box">
-						<!--box-->
-						<center>
-							<img src="img/p2.jpg" />
-							<span>Name </span>
-						</center>
-					</div>
-					<!--end-box-->
-				</div>
-				<!--block-->
-				<a href="#">View All</a>
 			</div>
 			<!--end-col_1-->
 
 			<div class="col_2">
-				<div class="gallery js-flickity">
+				<div class="gallery js-flickity" style="margin-top: 0px">
 					<div class="gallery-cell">
 						<div class="img" style="background:url('img/g3.jpg');"></div>
 						<div class="txt">
@@ -517,6 +433,7 @@
 
 <script>
 export default {
-  name: "Raw"
+	name: "Raw",
+	props: ['data']
 };
 </script>

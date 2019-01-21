@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue';
 import Register from './views/Register.vue';
 import Logout from '@/components/auth/Logout.vue';
+import TeamConfirmation from '@/components/Team/TeamConfirmation.vue';
 import Portfolio from './views/Portfolio.vue';
 import Termsandconditions from './views/Termsandconditions.vue'
 import Media from './views/Media.vue'
@@ -12,7 +13,6 @@ import Privacypolicy from './views/PrivacyPolicy.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     
@@ -75,6 +75,14 @@ export default new Router({
       meta: {
         requiresAuth: true,
       }
+    },
+    {
+      path: '/teamconfirmation/:token',
+      name: 'team-confirmation',
+      component: TeamConfirmation,
+      // meta: {
+      //   requiresAuth: true,
+      // }
     }
   ]
 })
