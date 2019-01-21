@@ -20,6 +20,7 @@
 					</div>
 					<!--end-box-->
 				</div>
+				<div style="padding: 10px	">no players added in team yet</div>
 			</div>
 			<!--end-col_1-->
 

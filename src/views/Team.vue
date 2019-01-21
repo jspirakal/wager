@@ -1470,5 +1470,7 @@ export default {
       border-radius: 10px 10px 0 0 !important;
     }
   }
-
+.sidebar-left-page3 ul li {
+  background-color: #2b2b2e !important;
+}
 </style>
