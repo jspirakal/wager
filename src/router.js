@@ -13,7 +13,6 @@ import Privacypolicy from './views/PrivacyPolicy.vue'
 Vue.use(Router)
 
 export default new Router({
-  base: process.env.BASE_URL,
   routes: [
     
     {
@@ -69,7 +68,7 @@ export default new Router({
       }
     },
     {
-      path: '/team',
+      path: '/team/:teamId',
       name: 'team',
       component: Team,
       meta: {

@@ -25,8 +25,8 @@
 			<!--end-col_1-->
 
 			<div class="col_2">
-				<div class="gallery js-flickity" style="margin-top: 0px">
-					<div class="gallery-cell">
+				<flickity ref="flickity">
+					<div class="carousel-cell gallery-cell">
 						<div class="img" style="background:url('img/g3.jpg');"></div>
 						<div class="txt">
 							<p>1st
@@ -35,7 +35,7 @@
 						</div>
 					</div>
 					<!--end-gallery cell-->
-					<div class="gallery-cell">
+					<div class="carousel-cell gallery-cell">
 						<div class="img" style="background:url('img/g2.jpg');"></div>
 						<div class="txt">
 							<p>1st
@@ -44,7 +44,7 @@
 						</div>
 					</div>
 					<!--end-gallery cell-->
-					<div class="gallery-cell">
+					<div class="carousel-cell gallery-cell">
 						<div class="img" style="background:url('img/g3.jpg'); "></div>
 						<div class="txt">
 							<p>1st
@@ -53,7 +53,7 @@
 						</div>
 					</div>
 					<!--end-gallery cell-->
-					<div class="gallery-cell">
+					<div class="carousel-cell gallery-cell">
 						<div class="img" style="background:url('img/g2.jpg');"></div>
 						<div class="txt">
 							<p>1st
@@ -62,8 +62,15 @@
 						</div>
 					</div>
 					<!--end-gallery cell-->
-				</div>
-				<!--end-gallery-->
+					<div class="carousel-cell gallery-cell">
+						<div class="img" style="background:url('img/g2.jpg');"></div>
+						<div class="txt">
+							<p>1st
+								<br> Euro ChampionShip
+								<br>7-4-2018</p>
+						</div>
+					</div>
+				</flickity>
 			</div>
 			<!--end-col_2.-->
 			<!--end-RAW_1-->
@@ -75,8 +82,8 @@
 					<p>Achievements</p>
 				</div>
 				<div class="content">
-					<div class="gallery js-flickity">
-						<div class="gallery-cell">
+					<flickity class="gallery js-flickity">carousel-cell 
+						<div class="carousel-cell gallery-cell">
 							<div class="img">
 								<center>
 									<img src="img/a1.png">
@@ -91,7 +98,7 @@
 							</div>
 						</div>
 						<!--end-gallery cell-->
-						<div class="gallery-cell">
+						<div class="carousel-cell gallery-cell">
 							<div class="img">
 								<center>
 									<img src="img/a2.png">
@@ -106,7 +113,7 @@
 							</div>
 						</div>
 						<!--end-gallery cell-->
-						<div class="gallery-cell">
+						<div class="carousel-cell gallery-cell">
 							<div class="img">
 								<center>
 									<img src="img/a3.png">
@@ -121,7 +128,7 @@
 							</div>
 						</div>
 						<!--end-gallery cell-->
-						<div class="gallery-cell">
+						<div class="carousel-cell gallery-cell">
 							<div class="img">
 								<center>
 									<img src="img/a4.png">
@@ -136,7 +143,7 @@
 							</div>
 						</div>
 						<!--end-gallery cell-->
-						<div class="gallery-cell">
+						<div class="carousel-cell gallery-cell">
 							<div class="img">
 								<center>
 									<img src="img/a3.png">
@@ -151,7 +158,7 @@
 							</div>
 						</div>
 						<!--end-gallery cell-->
-						<div class="gallery-cell">
+						<div class="carousel-cell gallery-cell">
 							<div class="img">
 								<center>
 									<img src="img/a1.png">
@@ -166,7 +173,7 @@
 							</div>
 						</div>
 						<!--end-gallery cell-->
-					</div>
+					</flickity>
 					<!--end-gallery-->
 				</div>
 			</div>
@@ -249,8 +256,8 @@
 				<div class="badges">
 					<div class="raw_2">
 						<div class="content">
-							<div class="gallery js-flickity" style="background:#050511">
-								<div class="gallery-cell">
+							<flickity class="gallery js-flickity" style="background:#050511">
+								<div class="carousel-cell gallery-cell">
 									<div class="img">
 										<center>
 											<img src="img/aw1.png">
@@ -258,7 +265,7 @@
 									</div>
 								</div>
 								<!--end-gallery cell-->
-								<div class="gallery-cell">
+								<div class="carousel-cell gallery-cell">
 									<div class="img">
 										<center>
 											<img src="img/aw4.png">
@@ -266,7 +273,7 @@
 									</div>
 								</div>
 								<!--end-gallery cell-->
-								<div class="gallery-cell">
+								<div class="carousel-cell gallery-cell">
 									<div class="img">
 										<center>
 											<img src="img/aw3.png">
@@ -274,7 +281,7 @@
 									</div>
 								</div>
 								<!--end-gallery cell-->
-								<div class="gallery-cell">
+								<div class="carousel-cell gallery-cell">
 									<div class="img">
 										<center>
 											<img src="img/aw4.png">
@@ -282,7 +289,7 @@
 									</div>
 								</div>
 								<!--end-gallery cell-->
-								<div class="gallery-cell">
+								<div class="carousel-cell gallery-cell">
 									<div class="img">
 										<center>
 											<img src="img/aw5.png">
@@ -290,7 +297,7 @@
 									</div>
 								</div>
 								<!--end-gallery cell-->
-								<div class="gallery-cell">
+								<div class="carousel-cell gallery-cell">
 									<div class="img">
 										<center>
 											<img src="img/aw2.png">
@@ -298,7 +305,7 @@
 									</div>
 								</div>
 								<!--end-gallery cell-->
-							</div>
+							</flickity>
 							<!--end-gallery-->
 						</div>
 					</div>
@@ -433,8 +440,24 @@
 </template>
 
 <script>
+import Flickity from 'vue-flickity';
+
 export default {
 	name: "Raw",
-	props: ['data']
+	props: ['data'],
+	components: {
+		Flickity
+	}
 };
 </script>
+
+<style>
+	.carousel-cell {
+		padding: 20px 10px !important;
+		min-width: 143px;
+	}
+	.carousel-cell p {
+		max-height: 80px;
+		white-space: nowrap;
+	}
+</style>

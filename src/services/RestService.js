@@ -1,8 +1,10 @@
 import axios from 'axios'
 
+const BASE_URL = "http://localhost:3000";
+
 export function get(url, params) {
     return new Promise(function (resolve, reject) {
-        axios.get(url, { params: params })
+        axios.get(BASE_URL + url, { params: params })
             .then(response => {
                 if (response) {
                     resolve(response);
@@ -24,7 +26,7 @@ export function get(url, params) {
 
 export function post(url, payload) {
     return new Promise(function (resolve, reject) {
-        axios.post(url, payload)
+        axios.post(BASE_URL + url, payload)
             .then(response => {
                 resolve(response);
             })
@@ -38,7 +40,7 @@ export function post(url, payload) {
 
 export function put(url, payload) {
     return new Promise(function (resolve, reject) {
-        axios.put(url, payload)
+        axios.put(BASE_URL + url, payload)
             .then(response => {
                 if (response.data) {
                     resolve(response);
@@ -55,7 +57,7 @@ export function put(url, payload) {
 
 export function del(url, payload) {
     return new Promise(function (resolve, reject) {
-        axios.delete(url, { data: payload })
+        axios.delete(BASE_URL + url, { data: payload })
             .then(response => {
                 if (response.data.success) {
                     resolve(response.data.data);
@@ -78,7 +80,7 @@ export function postMultipart(url, formData) {
         }
     }
     return new Promise(function (resolve, reject) {
-        axios.post(url, formData, config)
+        axios.post(BASE_URL + url, formData, config)
             .then(response => {
                 if (response)
                     resolve(response);

@@ -71,7 +71,7 @@ import axios from 'axios';
 Vue.use(VueAxios, axios)
 
 Vue.use(VueAuthenticate, {
-    baseUrl: 'http://localhost:3000/api/users', // Your API domain
+    baseUrl: '/api/users', // Your API domain
     
     providers: {
     facebook: {

@@ -32,7 +32,7 @@ export default {
   methods: {
     submit(status) {
       this.confirm = true;
-      api.put('http://localhost:3000/api/player/change-status', {status, token: this.$route.params.token})
+      api.put('/api/player/change-status', {status, token: this.$route.params.token})
         .then(
           res => this.showToast(res.data.message),
           err => this.showToast(res.data.message)

@@ -1,6 +1,6 @@
 import api from './RestService'
 
-const BASE_URL = "http://localhost:3000/api/users/";
+const BASE_URL = "/api/users/";
 
 export function login(payload){
   const resourceUrl = BASE_URL + 'login';

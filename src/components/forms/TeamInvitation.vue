@@ -38,7 +38,7 @@ export default {
       const payload = {
         username: this.username
       }
-      api.put('http://localhost:3000/api/add-team-member/' + this.modalProps.teamId, payload)
+      api.put('/api/add-team-member/' + this.modalProps.teamId, payload)
         .then(
           res => {
             this.load = false;            

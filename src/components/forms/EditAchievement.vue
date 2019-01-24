@@ -87,7 +87,7 @@ name: "edit-team",
       {
         let formData = new FormData();
         formData.append("file", this.file);
-        this.profilePic = await api.postMultipart("http://localhost:3000/api/file/upload", formData );
+        this.profilePic = await api.postMultipart("/api/file/upload", formData );
         this.$refs.fileinput.reset();
       }
 
@@ -100,14 +100,14 @@ name: "edit-team",
       else this.data.push(payload);
 
       if(this.request == 'post')
-        api.post("http://localhost:3000/api/users/add-detail", {
+        api.post("/api/users/add-detail", {
           userId: this.getUserId(),
           acheivements:this.data
         })
         .then(res => {that.load = false; that.$emit("submit", res.data)})
         .catch(err => console.log(err))
       else {
-        api.put("http://localhost:3000/api/users/update-detail", {
+        api.put("/api/users/update-detail", {
           userId: this.getUserId(),
           acheivements:this.data
         }).

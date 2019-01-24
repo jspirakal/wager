@@ -62,7 +62,7 @@ export default {
     }
   },
   mounted() {
-    api.get('http://localhost:3000/api/user/get-team/5c371b85dcfb4231c8123421')
+    api.get('/api/user/get-team/5c371b85dcfb4231c8123421')
       .then(
         res =>  this.team = res.data,
         err => console.log(err)

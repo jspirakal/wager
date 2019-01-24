@@ -84,12 +84,12 @@ export default {
       {
         let formData = new FormData();
         formData.append("file", this.file);
-        this.profilePic = await api.postMultipart("http://localhost:3000/api/file/upload", formData );
+        this.profilePic = await api.postMultipart("/api/file/upload", formData );
         console.log(this.profilePic.data.url);
       }
 
       if(this.request == 'post')
-        api.post("http://localhost:3000/api/users/add-detail", {
+        api.post("/api/users/add-detail", {
           name: this.form.name,
           userId: this.getUserId(),
           profilePic: this.profilePic ? this.profilePic.data.url : this.data.profilePic,
@@ -99,7 +99,7 @@ export default {
         }).then(res => {that.load = false; that.$emit("submit", res.data)})
         .catch(err => console.log(err))
       else {
-        api.put("http://localhost:3000/api/users/update-detail", {
+        api.put("/api/users/update-detail", {
           name: this.form.name,
           userId: this.getUserId(),
           profilePic: this.profilePic ? this.profilePic.data.url : this.data.profilePic,
