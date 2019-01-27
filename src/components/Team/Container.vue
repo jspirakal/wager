@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Raw :data="data" />
+    <Raw />
     <Social />
     <Fans />
     <MainFooter style="width: 100%" />

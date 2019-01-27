@@ -1,13 +1,13 @@
 <template>
   <div class="team_container">
-    <div class="main_container" style="max-width:1170px;margin:0 auto">
+    <div v-if="team" class="main_container" style="max-width:1170px;margin:0 auto">
       <main-header />
       <InfoNav @invite="showInviteForm" />
       <Sponsers />
       <TopNav />
       <Profile />
       <sidebar-left style="z-index: -1; display: inline-block; width: 30%" />
-      <Container :data="team" style="float: right" />
+      <Container style="float: right" />
       <div v-if="loading" class="load-overlay">
           <div class="cube-wrapper">
               <div class="cube-folding">
@@ -37,8 +37,16 @@ import Profile from "@/components/Team/Profile.vue";
 import Container from "@/components/Team/Container.vue";
 import TeamInvitation from "@/components/forms/TeamInvitation.vue";
 
+import EditTeamDetail from "@/components/forms/EditTeamDetail.vue";
+import TeamMatch from "@/components/forms/TeamMatch.vue";
+import TeamNews from "@/components/forms/TeamNews.vue";
+import TeamProduct from "@/components/forms/TeamProduct.vue";
+import TeamUpcomingEvents from "@/components/forms/TeamUpcomingEvents.vue";
+import TeamAchievement from "@/components/forms/TeamAchievement.vue";
+
 import api from '@/services/RestService'
 import notifications from '@/mixins/Notification'
+import {mapGetters, mapActions, mapState} from 'vuex';
 
 export default {
   name: "app",
@@ -54,22 +62,32 @@ export default {
   mixins: [notifications],
   data() {
     return {
-      loading: true,
+      loading: false,
       modalTitle: 'My Generic Modal',
       modalComponent: null,
       modalProps: {},
-      team : null
+      dialog: {
+        EditTeamDetail,
+        TeamMatch,
+        TeamNews,
+        TeamProduct,
+        TeamUpcomingEvents,
+        TeamAchievement
+      }
     }
   },
+  computed: {
+    ...mapGetters({
+      team: 'team/activeTeam'
+    })
+  },
   mounted() {
-    api.get('/api/user/get-team/5c371b85dcfb4231c8123421')
-      .then(
-        res =>  this.team = res.data,
-        err => console.log(err)
-      )
-    this.loading = false;
+    this.$root.$on("openDialog", data => {
+      this.openDialog(data);
+    });
   },
   methods: {
+    ...mapActions(["getProfile"]),
     showInviteForm() {
       console.log('showing invitation form');
       this.modalComponent = TeamInvitation;
@@ -77,9 +95,18 @@ export default {
       this.modalProps = {teamId: this.team._id}
       this.$refs.myModal.show();
     },
+    openDialog(data) {
+      this.modalComponent = this.dialog[data];
+      this.modalTitle = data.replace(/([A-Z])/g, ' $1');
+      this.modalProps = {teamId: this.team._id}
+      this.$refs.myModal.show();
+    },
     closeForm() {
       this.$refs.myModal.hide();
     }
+  },
+  created() {
+    this.getProfile();
   }
 };
 </script>
@@ -340,7 +367,6 @@ export default {
         * {
       padding: 0;
       margin: 0;
-      font-family: Open Sans;
     }
 
     .container {

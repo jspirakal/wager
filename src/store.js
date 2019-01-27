@@ -9,14 +9,14 @@ const team = {
   namespaced: true,
   state: {
     teams: [],
-    activeTeam: []
+    activeTeam: null
   },
   mutations: {
     "SET_TEAM": (state, data) => {
       Vue.set(state, "activeTeam", data);
     },
     "SET_ACTIVE_TEAM": (state, data) => {
-      
+      Vue.set(state, "activeTeam", data);
     }
   },
   getters: {
@@ -32,9 +32,32 @@ const team = {
 
     },
     getTeam: async ({commit}, id) => {
+      console.log('get team');
       const res = await api.get("/api/user/get-team/" + id)
       commit("SET_TEAM", res.data);
-    }
+    },
+    createTeam: ({commit, state, rootState}, payload) => {
+        payload.userId = rootState.user._id;
+        return new Promise ((resolve, reject) => {
+          api.post("/api/user/add-team", payload)
+            .then(res => {
+              commit("SET_TEAM", res.data.response);
+              resolve(res.data.message)
+            })
+            .catch(err => reject(err.message))
+        })
+    },
+    updateTeam: ({commit, state, rootState}, payload) => {
+      payload.userId = rootState.user._id;
+      return new Promise ((resolve, reject) => {
+        api.put("/api/user/update-team", payload)
+          .then(res => {
+            commit("SET_TEAM", res.data);
+            resolve(res.data)
+          })
+          .catch(err => reject(err))
+      })
+    },
   },
 }
 

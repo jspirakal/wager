@@ -5,7 +5,7 @@
       <navigation></navigation>
         <section>
             <div class="row">
-              <sidebar-left></sidebar-left>
+              <sidebar-left @createTeam="showCreateTeamDialog"></sidebar-left>
               <main-content></main-content>
               <sidebar-right></sidebar-right>
             </div>    
@@ -13,6 +13,10 @@
     </div>
     <footer-social></footer-social>
     <main-footer></main-footer>
+    <!-- Modal Component -->
+    <b-modal ref="myModal" id="modal1" :title="modalTitle" hide-footer>
+        <component :is="modalComponent" @finish="closeForm" :modalProps="modalProps"></component>
+    </b-modal>
   </div>
 </template>
 
@@ -25,8 +29,17 @@ import SidebarLeft from '@/components/SidebarLeft.vue';
 import MainContent from '@/components/MainContent.vue';
 import FooterSocial from '@/components/FooterSocial.vue';
 import MainFooter from '@/components/MainFooter.vue';
+import CreateTeam from '@/components/forms/CreateTeam';
+
 export default {
   name: 'home',
+  data() {
+      return {
+        modalTitle: '',
+        modalComponent: null,
+        modalProps: {}
+      }
+  },
   components: {
     MainHeader,
     Navigation,
@@ -40,6 +53,19 @@ export default {
     let SliderScript = document.createElement('script')
     SliderScript.setAttribute('src', 'js/main.js')
     document.head.appendChild(SliderScript)
+    // this.modalTitle = "My Form";
+    // this.modalComponent = TeamUpcomingEvents;
+    // this.$refs.myModal.show();
   },
+  methods: {
+    showCreateTeamDialog() {
+      this.modalTitle = "Create Team";
+      this.modalComponent = CreateTeam;
+      this.$refs.myModal.show();
+    },
+    closeForm() {
+      this.$refs.myModal.hide();
+    }
+  }
 }
 </script>

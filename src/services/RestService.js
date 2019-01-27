@@ -31,9 +31,7 @@ export function post(url, payload) {
                 resolve(response);
             })
             .catch(error => {
-                // console.log(error);
-                //reject(error.response.data);
-                reject(error);
+                reject(error.response.data);
             });
     })
 }

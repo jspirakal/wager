@@ -1,7 +1,7 @@
 <template>
-	<div>
+	<div v-if="newData">
 		<!--====================================START-RAW _1================================-->
-		<div class="raw1" style="position: relative">
+		<div	 class="raw1" style="position: relative">
 			<div class="nav">
 				<span style="background:#5a5859 ">Home</span>
 				<span>Lol</span>
@@ -25,49 +25,14 @@
 			<!--end-col_1-->
 
 			<div class="col_2">
+				<i class="fa fa-pencil" @click="$root.$emit('openDialog', 'TeamUpcomingEvents')"></i>
 				<flickity ref="flickity">
-					<div class="carousel-cell gallery-cell">
-						<div class="img" style="background:url('img/g3.jpg');"></div>
+					<div class="carousel-cell gallery-cell" v-for="(item, i) in data.upcomingEvents" :key="i">
+						<div class="img" :style="{'background':'url('+item.eventImage+')'}"></div>
 						<div class="txt">
 							<p>1st
-								<br> Euro ChampionShip
-								<br>7-4-2018</p>
-						</div>
-					</div>
-					<!--end-gallery cell-->
-					<div class="carousel-cell gallery-cell">
-						<div class="img" style="background:url('img/g2.jpg');"></div>
-						<div class="txt">
-							<p>1st
-								<br> Euro ChampionShip
-								<br>7-4-2018</p>
-						</div>
-					</div>
-					<!--end-gallery cell-->
-					<div class="carousel-cell gallery-cell">
-						<div class="img" style="background:url('img/g3.jpg'); "></div>
-						<div class="txt">
-							<p>1st
-								<br> Euro ChampionShip
-								<br>7-4-2018</p>
-						</div>
-					</div>
-					<!--end-gallery cell-->
-					<div class="carousel-cell gallery-cell">
-						<div class="img" style="background:url('img/g2.jpg');"></div>
-						<div class="txt">
-							<p>1st
-								<br> Euro ChampionShip
-								<br>7-4-2018</p>
-						</div>
-					</div>
-					<!--end-gallery cell-->
-					<div class="carousel-cell gallery-cell">
-						<div class="img" style="background:url('img/g2.jpg');"></div>
-						<div class="txt">
-							<p>1st
-								<br> Euro ChampionShip
-								<br>7-4-2018</p>
+								<br> {{item.eventName}}
+								<br>{{item.eventDate}}</p>
 						</div>
 					</div>
 				</flickity>
@@ -78,98 +43,25 @@
 
 			<!--====================================START-RAW_2================================-->
 			<div class="raw_2">
-				<div class="title">
-					<p>Achievements</p>
+				<div class="title" style="position: relative">
+					<p>Achievements
+						<i class="fa fa-pencil" @click="$root.$emit('openDialog', 'TeamAchievement')"></i>
+					</p>
 				</div>
 				<div class="content">
-					<flickity class="gallery js-flickity">carousel-cell 
-						<div class="carousel-cell gallery-cell">
+					<flickity class="gallery" v-if="data.achievements.length > 0">
+						<div class="carousel-cell gallery-cell" v-for="(item, i) in data.achievements" :key="i">
 							<div class="img">
 								<center>
-									<img src="img/a1.png">
+									<img :src="item.imgPath">
 								</center>
 							</div>
 							<div class="txt">
 								<p>
-									<span style="color:red">1st </span>
-									<br> April 2018
-									<br>Gamers Assembly
-									<br>Stadium 2018</p>
-							</div>
-						</div>
-						<!--end-gallery cell-->
-						<div class="carousel-cell gallery-cell">
-							<div class="img">
-								<center>
-									<img src="img/a2.png">
-								</center>
-							</div>
-							<div class="txt">
-								<p>
-									<span style="color:red">1st </span>
-									<br> May 2018
-									<br>MPL GG
-									<br>Stadium 2018</p>
-							</div>
-						</div>
-						<!--end-gallery cell-->
-						<div class="carousel-cell gallery-cell">
-							<div class="img">
-								<center>
-									<img src="img/a3.png">
-								</center>
-							</div>
-							<div class="txt">
-								<p>
-									<span style="color:red">1st </span>
-									<br> April 2018
-									<br>Louvae Assembly
-									<br>Stadium 2018</p>
-							</div>
-						</div>
-						<!--end-gallery cell-->
-						<div class="carousel-cell gallery-cell">
-							<div class="img">
-								<center>
-									<img src="img/a4.png">
-								</center>
-							</div>
-							<div class="txt">
-								<p>
-									<span style="color:red">1st </span>
-									<br> April 2018
-									<br>Gamers Assembly
-									<br>Stadium 2018</p>
-							</div>
-						</div>
-						<!--end-gallery cell-->
-						<div class="carousel-cell gallery-cell">
-							<div class="img">
-								<center>
-									<img src="img/a3.png">
-								</center>
-							</div>
-							<div class="txt">
-								<p>
-									<span style="color:red">1st </span>
-									<br> April 2018
-									<br>Gamers Assembly
-									<br>Stadium 2018</p>
-							</div>
-						</div>
-						<!--end-gallery cell-->
-						<div class="carousel-cell gallery-cell">
-							<div class="img">
-								<center>
-									<img src="img/a1.png">
-								</center>
-							</div>
-							<div class="txt">
-								<p>
-									<span style="color:red">1st </span>
-									<br> April 2018
-									<br>Gamers Assembly
-									<br>Stadium 2018</p>
+									<span style="color:red">{{item.achievementName}} </span>
+									<br> {{item.dateOfAchievement}}
+									<br> {{item.tournamentName}}
+									<br> {{item.venueOfAchievement}}</p>
 							</div>
 						</div>
 						<!--end-gallery cell-->
@@ -180,8 +72,10 @@
 			<!--====================================END-RAW_2================================-->
 
 			<!--====================================START-RAW_3 (MATCHES)================================-->
-			<div class="raw_3">
-				<h3>MATCHES </h3>
+			<div class="raw_3" style="position: relative">
+				<h3>MATCHES 
+					<i class="fa fa-pencil" style="font-size: 16px" @click="$root.$emit('openDialog', 'TeamMatch')"></i>
+				</h3>
 				<div class="col1">
 					<div>
 						<a href="#">Recent</a>
@@ -191,18 +85,18 @@
 					<a href="#" style="width:80%;float:left;text-align:center;margin:20px 10%;border-radius:10px;">Buy Event Tickets
 					</a>
 				</div>
-				<div class="col2">
-					<div class="team">
+				<div class="col2" v-if="data.matches.length > 0">
+					<div class="team" v-for="(item, i) in data.matches" :key="i">
 						<div class="col">
-							<img src="img/m1.png" />
-							<p>NA Summer Split
-								<br> Sep 24 , 2018 , 9: 00 pm</p>
-							<a href="#">Watch </a>
+							<img :src="item.gamePic" />
+							<p>{{item.gameName}}
+								<br>{{item.date}}</p>
+							<a :href="item.link">Watch </a>
 						</div>
 						<div style="margin-top:50px">
 							<div class="col">
 								<center>
-									<img src="img/t2.png" />
+									<img :src="item.team1Logo" />
 								</center>
 							</div>
 							<div class="col">
@@ -212,34 +106,7 @@
 							</div>
 							<div class="col">
 								<center>
-									<img src="img/t1.png" />
-								</center>
-							</div>
-						</div>
-					</div>
-					<!--end-team-->
-
-					<div class="team">
-						<div class="col">
-							<img src="img/m2.png" />
-							<p>Euro Cup Online
-								<br> Dec 04 , 2018 , 10 : 00 pm</p>
-							<a href="#">Watch </a>
-						</div>
-						<div style="margin-top:50px">
-							<div class="col">
-								<center>
-									<img src="img/t2.png" />
-								</center>
-							</div>
-							<div class="col">
-								<center>
-									<p>VS</p>
-								</center>
-							</div>
-							<div class="col">
-								<center>
-									<img src="img/t3.png" />
+									<img :src="item.team2Logo" />
 								</center>
 							</div>
 						</div>
@@ -256,7 +123,7 @@
 				<div class="badges">
 					<div class="raw_2">
 						<div class="content">
-							<flickity class="gallery js-flickity" style="background:#050511">
+							<flickity class="gallery" style="background:#050511">
 								<div class="carousel-cell gallery-cell">
 									<div class="img">
 										<center>
@@ -352,9 +219,31 @@
 
 
 		<!--====================================START-SHOP================================-->
-		<div class="shop">
-			<h4>SHOP</h4>
-			<div class="col">
+		<div class="shop" style="position: relative">
+			<h4>SHOP
+			<i class="fa fa-pencil" style="font-size: 16px" @click="$root.$emit('openDialog', 'TeamProduct')"></i>
+			</h4>
+			<flickity v-if="data.products.length > 0">
+				<div class="carousel-cell" v-for="(item, i) in data.products" :key="i">
+					<center>
+						<p>{{item.productName}}</p>
+						<br>
+						<p><img :src="item.image" /></p>
+						<br>
+						<br>
+						<p>{{item.price}} WGT </p>
+						<div class="sim-button button17">
+							<a :href="item.link"><span>Buy Now</span></a>
+						</div>
+						<div class="wrapper-inner-tab-backgrounds-second">
+							<div class="sim-button button17">
+								<a :href="item.link"><span>Buy Now</span></a>
+							</div>
+						</div>
+				</center>
+				</div>
+			</flickity>
+			<!-- <div class="col">
 				<center>
 					<p>Blacer T Shirt </p>
 					<br>
@@ -368,71 +257,7 @@
 						</div>
 					</div>
 				</center>
-			</div>
-			<!--end-col-->
-			<div class="col">
-				<center>
-					<p>Blacer T Shirt </p>
-					<br>
-					<img src="img/s5.png" />
-					<br>
-					<br>
-					<p>200 WGT </p>
-					<div class="wrapper-inner-tab-backgrounds-second">
-						<div class="sim-button button17">
-							<span>Buy Now</span>
-						</div>
-					</div>
-				</center>
-			</div>
-			<!--end-col-->
-			<div class="col">
-				<center>
-					<p>Blacer T Shirt </p>
-					<br>
-					<img src="img/s3.png" />
-					<br>
-					<br>
-					<p>100 WGT </p>
-					<div class="wrapper-inner-tab-backgrounds-second">
-						<div class="sim-button button17">
-							<span>Buy Now</span>
-						</div>
-					</div>
-				</center>
-			</div>
-			<!--end-col-->
-			<div class="col">
-				<center>
-					<p>Blacer T Shirt </p>
-					<br>
-					<img src="img/s2.png" />
-					<br>
-					<br>
-					<p>20 WGT </p>
-					<div class="wrapper-inner-tab-backgrounds-second">
-						<div class="sim-button button17">
-							<span>Buy Now</span>
-						</div>
-					</div>
-				</center>
-			</div>
-			<!--end-col-->
-			<div class="col">
-				<center>
-					<p>Blacer T Shirt </p>
-					<br>
-					<img src="img/s1.png" />
-					<br>
-					<br>
-					<p>20 WGT </p>
-					<div class="wrapper-inner-tab-backgrounds-second">
-						<div class="sim-button button17">
-							<span>Buy Now</span>
-						</div>
-					</div>
-				</center>
-			</div>
+			</div> -->
 			<!--end-col-->
 		</div>
 		<!--====================================END-SHOP================================-->
@@ -441,12 +266,29 @@
 
 <script>
 import Flickity from 'vue-flickity';
+import {mapGetters, mapActions, mapState} from 'vuex';
+import { setTimeout } from 'timers';
 
 export default {
 	name: "Raw",
-	props: ['data'],
+	data() {
+		return {
+			newData: true
+		}
+	},
+  computed: {
+    ...mapGetters({
+      data: 'team/activeTeam'
+		})
+  },
 	components: {
 		Flickity
+	},
+	watch: {
+		data() {
+			this.newData = false;
+			setTimeout(() => this.newData = true, 500)
+		}
 	}
 };
 </script>
