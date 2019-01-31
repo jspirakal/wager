@@ -53,7 +53,7 @@
 						<div class="carousel-cell gallery-cell" v-for="(item, i) in data.achievements" :key="i">
 							<div class="img">
 								<center>
-									<img :src="item.imgPath">
+							 		<img :src="item.imgPath">
 								</center>
 							</div>
 							<div class="txt">
@@ -88,7 +88,7 @@
 				<div class="col2" v-if="data.matches.length > 0">
 					<div class="team" v-for="(item, i) in data.matches" :key="i">
 						<div class="col">
-							<img :src="item.gamePic" />
+							<b-img max-width="75px" max-height="75px" thumbnail :src="item.gamePic" />
 							<p>{{item.gameName}}
 								<br>{{item.date}}</p>
 							<a :href="item.link">Watch </a>
@@ -96,7 +96,9 @@
 						<div style="margin-top:50px">
 							<div class="col">
 								<center>
-									<img :src="item.team1Logo" />
+						<b-img rounded="circle" left :src="item.team1Logo" width="125" height="125" blank-color="#777" alt="img" class="m-1" />
+
+         
 								</center>
 							</div>
 							<div class="col">
@@ -106,7 +108,8 @@
 							</div>
 							<div class="col">
 								<center>
-									<img :src="item.team2Logo" />
+
+									<b-img rounded="circle" right :src="item.team2Logo" width="125" height="125" blank-color="#777" alt="img" class="m-1" /> </b-card>
 								</center>
 							</div>
 						</div>

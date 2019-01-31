@@ -17,7 +17,7 @@
 			</ul>	   
 		</div>
   	   <div class="pro_img">
-	   		<center><img :src="team.profileImg"></center>
+	   		<center><b-img rounded="circle" :src="team.profileImg" width="200" height="200" blank-color="#777" alt="img" class="m-1" /></center>
 	   </div> 
   </div>
 </template>
