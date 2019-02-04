@@ -42,7 +42,7 @@ const team = {
           api.post("/api/user/add-team", payload)
             .then(res => {
               commit("SET_TEAM", res.data.response);
-              resolve(res.data.message)
+              resolve(res.data)
             })
             .catch(err => reject(err.message))
         })
