@@ -151,8 +151,8 @@
                 </div>
                 <div class="active" id="line2">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Players</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a class="" href="#" id="c" style="text-decoration: none;">Players</a>
+                    <a class="" href="#" id="d" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
 
@@ -294,16 +294,30 @@ export default {
 
 <style>
 
-ul#line2 a#a {
+.a {
   display: inline;
 }
-ul#line2:hover a#a {
+ul#line1:hover a#a {
   display: none;
 }
-ul#line2 a#b {
+ul#line1 a#b {
   display: none;
 }
-ul#line2:hover a#b {
+ul#line1:hover a#b {
+  display: inline;
+  color: yellow
+}
+
+ul#line1 c#c {
+  display: inline;
+}
+ul#line2:hover c#c {
+  display: none;
+}
+ul#line2 c#d {
+  display: none;
+}
+ul#line2:hover c#d {
   display: inline;
   color: yellow
 }

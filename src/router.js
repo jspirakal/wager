@@ -10,11 +10,19 @@ import Termsandconditions from './views/Termsandconditions.vue'
 import Media from './views/Media.vue'
 import Team from './views/Team.vue'
 import Privacypolicy from './views/PrivacyPolicy.vue'
+import Dota2Search from './views/Dota2Search.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    
+    {
+      path: '/dota2search',
+      name: '/dota2search',
+      component: Dota2Search,
+      meta: {
+        requiresAuth: true,
+      }
+    }, 
     {
       path: '/media',
       name: 'media',
