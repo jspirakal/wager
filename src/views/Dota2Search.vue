@@ -43,7 +43,7 @@ export default {
     ResultCard,
     FooterSocial,
     MainFooter,
-    GameNavigation
+  GameNavigation
   },
   data() {
     return {

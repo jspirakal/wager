@@ -34,7 +34,42 @@ a {
 
 
 <template>
- 
+  <div class="row">
+    <nav
+      id="GameNav"
+      class="navbar navbar-expand navigation mt-5 bg-dark navbar-dark justify-content-center mx-auto"
+    >
+      <!-- Brand -->
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <!-- Toggler/collapsibe Button -->
+      <!-- Navbar links -->
+      <ul class="navbar-nav p-1">
+        <li class="nav-item">
+          <i class="flaticon-a"></i>
+        </li>
+        <li class="nav-item">
+          <i class="flaticon-b"></i>
+        </li>
+        <li class="nav-item">
+          <a href="/dota2search">
+            <i class="flaticon-c"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <i class="flaticon-d"></i>
+        </li>
+        <li class="nav-item">
+          <i class="flaticon-e"></i>
+        </li>
+        <li class="nav-item">
+          <i class="flaticon-f"></i>
+        </li>
+        <li class="nav-item">
+          <i class="flaticon-g"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>
 <script>
 export default {
