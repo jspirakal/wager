@@ -1,5 +1,8 @@
 <template>
   <b-card bg-variant="dark" text-variant="white" :style="{textAlign: 'left'}">
+    <b-tabs pills>
+    </br>
+      <b-tab title="Search Players" active>
     <b-form>
       <b-form-group id="username">
         <b-form-input type="text" v-model="form.username" placeholder="Search by Username"></b-form-input>
@@ -72,6 +75,82 @@
         </b-container>
       </b-modal>
     </b-form>
+      </b-tab>
+      <b-tab title="Search Teams">
+    <b-form>
+      <b-form-group id="username">
+        <b-form-input type="text" v-model="teamform.username" placeholder="Search by name"></b-form-input>
+      </b-form-group>
+      <b-button v-if="form.username" variant="primary">SHOW PLAYERS</b-button>
+      <div class="filter-options-divider">
+        <strong>Filter</strong>
+        <b-button size="sm" variant="primary" @click="reset" :disabled="!!teamform.username">RESET</b-button>
+      </div>
+      <b-form-group id="skill_level" label="Skill Level" label-for="skill_level">
+        <vue-slider
+          ref="slider"
+          v-model="teamform.skillLevel"
+          v-bind="sliderSettings"
+          :disabled="!!teamform.username"
+        ></vue-slider>
+      </b-form-group>
+      <b-form-group id="main_roles" label="Main Roles" label-for="main_roles">
+        <b-form-checkbox-group v-model="teamform.mainRoles" :disabled="!!teamform.username">
+          <b-form-checkbox value="carry">Carry</b-form-checkbox>
+          <br>
+          <b-form-checkbox value="support">Support</b-form-checkbox>
+          <br>
+          <b-form-checkbox value="mid">Mid</b-form-checkbox>
+        </b-form-checkbox-group>
+      </b-form-group>
+      <b-form-group id="tactical_roles" label="Tactical Roles" label-for="tactical_roles">
+        <b-form-checkbox-group v-model="teamform.tacticalRoles" :disabled="!!teamform.username">
+          <b-form-checkbox value="captain">Captain</b-form-checkbox>
+          <br>
+          <b-form-checkbox value="coach">Coach</b-form-checkbox>
+        </b-form-checkbox-group>
+      </b-form-group>
+      <b-form-group id="server_regions" label="Server Regions" :disabled="!!teamform.username">
+        <b-button
+          variant="primary"
+          :disabled="!!teamform.username"
+          v-b-modal.server-select-modal
+        >Select Matchmaking Regions</b-button>
+      </b-form-group>
+      <b-form-group id="hours_played" label="Min. Hours Played" label-for="hours_played">
+        <b-form-input type="number" min="0" v-model="teamform.hoursPlayed" :disabled="!!teamform.username"></b-form-input>
+      </b-form-group>
+      <b-modal
+        class="disable-selectable"
+        ref="serverSelectModal"
+        id="server-select-modal"
+        v-bind="modalSettings"
+      >
+        <b-container>
+          <h5 class="text-center">Select Matchmaking Regions</h5>
+          <b-form-checkbox
+            class="mt-4"
+            v-model="teamform.autoSelectServer"
+            disabled
+          >Automatically pick the best region based on my location.</b-form-checkbox>
+          <p class="text-center mt-4">OR</p>
+          <p>Select up to three matchmaking regions. Select only the regions closest to you for the best experience.</p>
+          <b-form-checkbox-group v-model="form.servers" :disabled="teamform.autoSelectServer">
+            <b-row class="mx-auto" v-for="(chunk, i) in chunkedServerOptions" :key="i">
+              <b-col v-for="server in chunk" :key="server.id">
+                <b-form-checkbox :key="server.id" :value="server.value">{{server.text}}</b-form-checkbox>
+              </b-col>
+            </b-row>
+          </b-form-checkbox-group>
+          <div class="text-center mt-5">
+            <b-button class="mr-2" variant="primary" @click="apply">OK</b-button>
+            <b-button @click="cancel">Cancel</b-button>
+          </div>
+        </b-container>
+      </b-modal>
+    </b-form>
+    </b-tab>
+      </b-tabs>
   </b-card>
 </template>
 
@@ -83,6 +162,15 @@ export default {
   data() {
     return {
       form: {
+        username: "",
+        mainRoles: [],
+        tacticalRoles: [],
+        servers: [],
+        autoSelectServer: false,
+        hoursPlayed: null,
+        skillLevel: [0, 10]
+      },
+      teamform: {
         username: "",
         mainRoles: [],
         tacticalRoles: [],
@@ -112,6 +200,19 @@ export default {
         { id: 18, value: "us_west", text: "US West" }
       ],
       sliderSettings: {
+        piecewise: true,
+        piecewiseLabel: true,
+        labelStyle: { color: "#fff" },
+        labelActiveStyle: { color: "#3498db" },
+        sliderStyle: [
+          { backgroundColor: "#3498db" },
+          { backgroundColor: "#3498db" }
+        ],
+        min: 0,
+        max: 10,
+        tooltip: false
+      },
+          slider2Settings: {
         piecewise: true,
         piecewiseLabel: true,
         labelStyle: { color: "#fff" },

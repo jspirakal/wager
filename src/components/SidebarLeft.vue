@@ -80,21 +80,12 @@
           <div class="collapse" id="submenu4" aria-expanded="false">
             <ul class="flex-column pl-4 nav">
               <li class="nav-item">
-  <div class="active" id="line1">
-                  <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Teams</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-                  </li>
-                </div>
-                <div class="active" id="line2">
-                  <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Players</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-                  </li>
-                </div> </li></ul>
-       
-                </div>
-
+              <li>
+              <a href="/sponsors" style="text-decoration: none;">Sponsors Page </a>
+              </li>
+              </ul>
+              </div>
+<hr>
               </li>
              <li class="nav-item">
           <a class="nav-link collapsed" href="#submenu5" data-toggle="collapse" data-target="#submenu5">Hire</a>
