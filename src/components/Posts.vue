@@ -1,29 +1,38 @@
 <template>
-  <div class="posts">
-    <h1>Posts</h1>
+  <div class="posts"></br>
     <div v-if="posts.length > 0" class="table-wrap">
-      <div>
-        <router-link v-bind:to="{ name: 'NewPost' }" class="">Add Post</router-link>
-      </div>
       <table>
         <tr>
-          <td>Title</td>
-          <td width="550">Description</td>
-          <td width="100" align="center">Action</td>
         </tr>
         <tr v-for="post in posts">
-          <td>{{ post.title }}</td>
-          <td>{{ post.description }}</td>
+             <b-card border-variant="dark"
+            header="Dark"
+            align="center"
+            bg-variant="Dark">
+            <b-media right-align vertical-align="center">
+  <b-img slot="aside" blank blank-color="#ccc" width="80" alt="placeholder" />
+  <h5 class="mt-0 mb-1">{{ post.title }}</h5>
+{{ post.description }}
+</b-media>
+
+   
           <td align="center">
             <router-link v-bind:to="{ name: 'EditPost', params: { id: post._id } }">Edit</router-link> |
             <a href="#" @click="deletePost(post._id)">Delete</a>
           </td>
+        </b-card>
         </tr>
+      <div>
+          </br>
+        <router-link v-bind:to="{ name: 'NewPost' }" class=""><b-button variant="Dark" size="lg">
+            Submit Article</b-button>
+        </router-link>
+      </div>
       </table>
     </div>
     <div v-else>
-      There are no posts.. Lets add one now <br /><br />
-      <router-link v-bind:to="{ name: 'NewPost' }" class="add_post_link">Add Post</router-link>
+      There are no articles.. Lets add one now <br /><br />
+      <router-link v-bind:to="{ name: 'NewPost' }" class="add_post_link">Submit Article</router-link>
     </div>
   </div>
 </template>
