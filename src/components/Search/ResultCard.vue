@@ -23,14 +23,15 @@
               </b-col>
               <b-col>
                 <b-row>
-                  <div class="skill-tag" v-if="main && main.includes('carry')">
-                    <span class="skill-tag-text">Carry</span>
+                  <div v-if="main && main.includes('carry')">
+                     <b-badge pill href="#" variant="primary">Carry</b-badge>
+                     <hr>
                   </div>
-                  <div class="skill-tag" v-if="main && main.includes('support')">
-                    <span class="skill-tag-text">Support</span>
+                  <div v-if="main && main.includes('support')">
+                     <b-badge pill href="#" variant="primary">Support</b-badge>
                   </div>
-                  <div class="skill-tag" v-if="main && main.includes('mid')">
-                    <span class="skill-tag-text">Mid</span>
+                  <div v-if="main && main.includes('mid')">
+                     <b-badge pill href="#" variant="primary">Mid</b-badge>
                   </div>
                 </b-row>
               </b-col>
@@ -41,11 +42,11 @@
               </b-col>
               <b-col >
                 <b-row>
-                  <div class="skill-tag" v-if="tactical && tactical.includes('captain')">
-                    <span class="skill-tag-text">Captain</span>
+                  <div v-if="tactical && tactical.includes('captain')">
+                     <b-badge pill href="#" variant="success">Mid</b-badge>
                   </div>
-                  <div class="skill-tag" v-if="tactical && tactical.includes('coach')">
-                    <span class="skill-tag-text">Coach</span>
+                  <div v-if="tactical && tactical.includes('coach')">
+                             <b-badge pill href="#" variant="success">Mid</b-badge>
                   </div>
                 </b-row>
               </b-col>

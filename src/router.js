@@ -11,10 +11,16 @@ import Media from './views/Media.vue'
 import Team from './views/Team.vue'
 import Privacypolicy from './views/PrivacyPolicy.vue'
 import Dota2Search from './views/Dota2Search.vue'
+import Posts from '@/components/Posts'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/posts',
+      name: 'Posts',
+      component: Posts
+    },
     {
       path: '/dota2search',
       name: '/dota2search',

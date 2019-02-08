@@ -90,25 +90,9 @@
         <vue-slider
           ref="slider"
           v-model="teamform.skillLevel"
-          v-bind="sliderSettings"
+          v-bind="slider2Settings"
           :disabled="!!teamform.username"
         ></vue-slider>
-      </b-form-group>
-      <b-form-group id="main_roles" label="Main Roles" label-for="main_roles">
-        <b-form-checkbox-group v-model="teamform.mainRoles" :disabled="!!teamform.username">
-          <b-form-checkbox value="carry">Carry</b-form-checkbox>
-          <br>
-          <b-form-checkbox value="support">Support</b-form-checkbox>
-          <br>
-          <b-form-checkbox value="mid">Mid</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-group>
-      <b-form-group id="tactical_roles" label="Tactical Roles" label-for="tactical_roles">
-        <b-form-checkbox-group v-model="teamform.tacticalRoles" :disabled="!!teamform.username">
-          <b-form-checkbox value="captain">Captain</b-form-checkbox>
-          <br>
-          <b-form-checkbox value="coach">Coach</b-form-checkbox>
-        </b-form-checkbox-group>
       </b-form-group>
       <b-form-group id="server_regions" label="Server Regions" :disabled="!!teamform.username">
         <b-button
@@ -116,9 +100,6 @@
           :disabled="!!teamform.username"
           v-b-modal.server-select-modal
         >Select Matchmaking Regions</b-button>
-      </b-form-group>
-      <b-form-group id="hours_played" label="Min. Hours Played" label-for="hours_played">
-        <b-form-input type="number" min="0" v-model="teamform.hoursPlayed" :disabled="!!teamform.username"></b-form-input>
       </b-form-group>
       <b-modal
         class="disable-selectable"
@@ -172,11 +153,8 @@ export default {
       },
       teamform: {
         username: "",
-        mainRoles: [],
-        tacticalRoles: [],
         servers: [],
         autoSelectServer: false,
-        hoursPlayed: null,
         skillLevel: [0, 10]
       },
       serverOptions: [
