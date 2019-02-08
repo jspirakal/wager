@@ -5,13 +5,13 @@
         <tr>
         </tr>
         <tr v-for="post in posts">
-             <b-card border-variant="dark"
-            header="Dark"
+             <b-card border-variant="Dark"
             align="center"
             bg-variant="Dark">
             <b-media right-align vertical-align="center">
   <b-img slot="aside" blank blank-color="#ccc" width="80" alt="placeholder" />
   <h5 class="mt-0 mb-1">{{ post.title }}</h5>
+   <p style="font-size: 14pt">by {{ post.author }}  &nbsp; &nbsp;<b-badge variant="primary">{{ post.subject }}</b-badge> </p>
 {{ post.description }}
 </b-media>
 

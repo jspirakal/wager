@@ -8,9 +8,10 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
+
 // Fetch all posts
 app.get('/posts', (req, res) => {
-    Post.find({}, 'title description', function (error, posts) {
+    Post.find({}, 'title description subject author', function (error, posts) {
       if (error) { console.error(error); }
       res.send({
         posts: posts
@@ -33,9 +34,13 @@ app.post('/posts', (req, res) => {
     var db = req.db;
     var title = req.body.title;
     var description = req.body.description;
+    var author = req.body.author;
+    var subject = req.body.subject;
     var new_post = new Post({
       title: title,
-      description: description
+      description: description,
+      author: author,
+      subject: subject
     })
   
     new_post.save(function (error) {
@@ -64,6 +69,8 @@ app.get('/post/:id', (req, res) => {
     Post.findById(req.params.id, 'title description', function (error, post) {
       if (error) { console.error(error); }
   
+      post.subject = req.body.subject
+      post.author = req.body.author
       post.title = req.body.title
       post.description = req.body.description
       post.save(function (error) {

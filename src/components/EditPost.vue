@@ -1,5 +1,12 @@
 <template>
   <div class="posts">
+          </br>
+           <div class="table-wrap">
+                <table>
+                     <b-card border-variant="Dark"
+            header="Media Submission Form"
+            align="center"
+            bg-variant="Dark">
     <h1>Edit Post</h1>
       <div class="form">
         <div>
@@ -8,9 +15,18 @@
         <div>
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
         </div>
+           <div>
+          <input type="text" name="author" placeholder="AUTHOR" v-model="author">
+        </div>
+         <div>
+          <input type="text" name="subject" placeholder="SUBJECT" v-model="subject">
+        </div>
         <div>
           <button class="app_post_btn" @click="updatePost">Update</button>
         </div>
+      </div>
+        </b-card>
+      </table>
       </div>
   </div>
 </template>
@@ -22,7 +38,9 @@ export default {
   data () {
     return {
       title: '',
-      description: ''
+      description: '',
+      subject: '',
+      author: ''
     }
   },
   mounted () {
@@ -35,12 +53,16 @@ export default {
       })
       this.title = response.data.title
       this.description = response.data.description
+      this.subject = response.data.subject
+      this.author = response.data.author
     },
     async updatePost () {
       await PostsService.updatePost({
         id: this.$route.params.id,
         title: this.title,
-        description: this.description
+        description: this.description,
+        author: this.author,
+        subject: this.subject
       })
       this.$router.push({ name: 'Posts' })
     }

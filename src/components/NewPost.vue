@@ -4,13 +4,19 @@
       <div class="table-wrap">
                 <table>
       <b-card border-variant="Dark"
-            header="Author: Subject:"
+            header="Media Submission Form"
             align="center"
             bg-variant="Dark">
     <h1>Submit Article</h1>
       <div class="form">
         <div>
           <input type="text" name="title" placeholder="TITLE" v-model="title">
+        </div>
+                <div>
+          <input type="text" name="author" placeholder="AUTHOR" v-model="author">
+        </div>
+                <div>
+          <input type="text" name="subject" placeholder="SUBJECT" v-model="subject">
         </div>
         <div>
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
@@ -32,14 +38,18 @@ export default {
   data () {
     return {
       title: '',
-      description: ''
+      description: '',
+      author: '',
+      subject: ''
     }
   },
   methods: {
     async addPost () {
       await PostsService.addPost({
         title: this.title,
-        description: this.description
+        description: this.description,
+        author: this.author,
+        subject: this.subject
       })
       this.$router.push({ name: 'Posts' })
     }
