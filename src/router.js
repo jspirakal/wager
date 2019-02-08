@@ -12,10 +12,22 @@ import Team from './views/Team.vue'
 import Privacypolicy from './views/PrivacyPolicy.vue'
 import Dota2Search from './views/Dota2Search.vue'
 import Posts from '@/components/Posts'
+import NewPost from '@/components/NewPost'
+import EditPost from '@/components/EditPost'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/posts/:id',
+      name: 'EditPost',
+      component: EditPost
+    },
+    {
+      path: '/posts/new',
+      name: 'NewPost',
+      component: NewPost
+    },
     {
       path: '/posts',
       name: 'Posts',
