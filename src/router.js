@@ -14,10 +14,22 @@ import Dota2Search from './views/Dota2Search.vue'
 import Posts from '@/components/Posts'
 import NewPost from '@/components/NewPost'
 import EditPost from '@/components/EditPost'
+import Stats from '@/views/Stats.vue'
+import Streams from '@/views/Streams.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/streams',
+      name: 'Streams',
+      component: Streams
+    },
+    {
+      path: '/dota2/stats',
+      name: 'Stats',
+      component: Stats
+    },
     {
       path: '/posts/:id',
       name: 'EditPost',
