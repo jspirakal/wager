@@ -7,6 +7,12 @@
                       placeholder="Enter name"
                       required>
         </b-form-input>
+        <b-form-input id="name"
+                      type="text"
+                      v-model="role"
+                      placeholder="Enter role"
+                      required>
+        </b-form-input>
       <!-- Styled -->
 
       <div class="col-flex" style="margin-top: 20px; align-items: center">
@@ -29,6 +35,7 @@ export default {
   data() {
     return {
       username: '',
+      role: '',
       load: false
     }
   },
@@ -36,7 +43,8 @@ export default {
     submit() {
       this.load = true;
       const payload = {
-        username: this.username
+        username: this.username,
+        role: this.role
       }
       api.put('/api/add-team-member/' + this.modalProps.teamId, payload)
         .then(

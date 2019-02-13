@@ -8,7 +8,11 @@ export default {
     mounted() {
         this.$store.dispatch('destroyToken')
         .then(response => {
-            this.$router.push({ name: 'home' });
+            this.$router.push('/');
+        })
+        .catch(err => {
+            this.$router.push('/');
+
         });
     }
 }

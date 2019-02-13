@@ -30,6 +30,8 @@ import SidebarLeft from "@/components/SidebarLeft.vue";
 import MainContent from "@/components/MainContent.vue";
 import FooterSocial from "@/components/FooterSocial.vue";
 import MainFooter from "@/components/MainFooter.vue";
+import CreateTeam from '@/components/forms/CreateTeam';
+
 export default {
   name: "home",
   components: {
@@ -41,6 +43,13 @@ export default {
     FooterSocial,
     MainFooter,
     GameNavigation
+  },
+  data() {
+    return {
+      modalTitle: '',
+      modalComponent: '',
+      modalProps: ''
+    }
   },
   mounted() {
     let SliderScript = document.createElement('script')

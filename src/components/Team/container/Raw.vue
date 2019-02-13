@@ -9,15 +9,17 @@
 				<span>CS : GO</span>
 			</div>
 			<div v-if="data" class="col_1" style="height: 320px">
-				<div v-if="data.selectedPlayers.length" class="block">
-					<p>Selected Players</p>
-					<div style="padding-left: 10px" v-for="(player, i) in data.selectedPlayers" :key="i" class="box">
-						<!--box-->
-						<center>
-							<img src="img/p1.jpg" />
-							<span>{{player	}}</span>
-						</center>
-					</div>
+				<div v-if="data.selectedPlayers.length" class="block"  v-for="(role, i) in getRoles(data.selectedPlayers)" :key="i">
+					<span >
+						<p style="margin-bottom: 5px">{{role}}</p>
+						<div style="padding-left: 10px" class="box" v-for="(item, j) in data.selectedPlayers" :key="j" v-if="item.role == role">
+							<!--box-->
+							<center>
+								<img src="img/p1.jpg" />
+								<span>{{item.name	}}</span>
+							</center>
+						</div>
+					</span>
 					<!--end-box-->
 				</div>
 				<div v-else style="padding: 10px	">no players added in team yet</div>
@@ -283,7 +285,17 @@ export default {
     ...mapGetters({
       data: 'team/activeTeam'
 		})
-  },
+	},
+	methods: {
+		getRoles(arr) {
+			var roles = [];
+			arr.forEach(item => {
+				if(roles.indexOf(item.role) == -1)
+					roles.push(item.role);
+			});
+			return roles;
+		}
+	},
 	components: {
 		Flickity
 	},

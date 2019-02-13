@@ -100,7 +100,7 @@ export default new Vuex.Store({
           const token = response.data.token;
           localStorage.setItem('token', token);
           context.commit('retriveToken', token);
-          dispatch('getProfile');
+          context.dispatch('getProfile');
           resolve(response);
           // console.log(response);
         })
