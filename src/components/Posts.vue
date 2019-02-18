@@ -31,9 +31,12 @@
       </table>
     </div>
     <div v-else>
-      There are no articles.. Lets add one now <br /><br />
+    <b-card title="You don't have any articles.." class="text-center">
+      Why not add one now? <br /><br />
       <router-link v-bind:to="{ name: 'NewPost' }" class="add_post_link">Submit Article</router-link>
+          </b-card>
     </div>
+
   </div>
 </template>
 

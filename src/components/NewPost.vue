@@ -1,12 +1,9 @@
 <template>
-  <div class="posts">
-      </br>
-      <div class="table-wrap">
-                <table>
-      <b-card border-variant="Dark"
+     <b-card border-variant="Dark"
             header="Media Submission Form"
             align="center"
-            bg-variant="Dark">
+            bg-variant="Dark"
+            >
     <h1>Submit Article</h1>
       <div class="form">
         <div>
@@ -26,9 +23,8 @@
         </div>
       </div>
       </b-card>
-      </table>
-      </div>
-  </div>
+   
+  
 </template>
 
 <script>

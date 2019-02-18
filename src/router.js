@@ -18,10 +18,16 @@ import Stats from '@/views/Stats.vue'
 import Streams from '@/views/Streams.vue'
 import Sponsors from '@/views/Sponsors.vue'
 import SponsorsForm from '@/views/SponsorsForm.vue'
+import StreamsForm from '@/views/StreamsForm.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/streams/form',
+      name: 'StreamsForm',
+      component: StreamsForm
+    },
     {
       path: '/sponsors/form',
       name: 'SponsorsForm',
