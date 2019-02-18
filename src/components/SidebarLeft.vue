@@ -109,15 +109,17 @@
               <li>
               <a href="#/sponsors" style="text-decoration: none;">Sponsors Page </a>
               </li>
-          
+          <hr>
               </ul>
               </div>
-<hr>
+ <hr style="    clear: both;
+    visibility: hidden;"> 
               </li>
 
               
              <li class="nav-item"> <hr>
           <a class="nav-link collapsed" href="#submenu5" data-toggle="collapse" data-target="#submenu5">Hire</a>
+ <div class="collapse" id="submenu5" aria-expanded="false">  </div>
           <div class="collapse" id="submenu5" aria-expanded="false">
            <ul class="flex-column pl-4 nav">
               <li class="nav-item">
@@ -300,7 +302,6 @@ export default {
 </script>
 
 <style>
-
 .a {
   display: inline;
 }
