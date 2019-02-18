@@ -1,5 +1,6 @@
 <template>
      <header>
+       <div style="text-align: left !important"> 
            <header>
              <router-link to="/">
               <img src="img/logo.png" alt="LOGO">
@@ -7,6 +8,7 @@
                
              </router-link>
             </header>
+            </div>
       </header>
 </template>
 <script>
@@ -14,3 +16,6 @@ export default {
   name: 'MainHeader'
 }
 </script>
+<style>
+
+</style>

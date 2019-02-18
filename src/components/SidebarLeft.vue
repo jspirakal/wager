@@ -3,7 +3,8 @@
     <div class="sidebar-left pl-0 collapse d-flex">
       <ul class="nav flex-column flex-nowrap">
         <li v-if="!loggedIn" class="nav-item">
-          <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Join/login</a>
+          <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Join/login      </a>
+    
           <div class="collapse" id="submenu1" aria-expanded="false">
             <ul class="flex-column pl-4 nav">
               <li class="nav-item">
@@ -11,6 +12,7 @@
               </li>
               <li class="nav-item">
                 <router-link to="/register" class="nav-link collapsed py-1">Register</router-link>
+                      
               </li>
             </ul>
           </div>
@@ -22,6 +24,7 @@
             <ul class="flex-column pl-4 nav">
               <li class="nav-item">
                 <router-link to="/logout" class="nav-link collapsed py-1">Logout</router-link>
+                <hr>
               </li>
             </ul>
           </div>
@@ -29,7 +32,8 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#submenu2" data-toggle="collapse" data-target="#submenu2">Play Games</a>
+          <a class="nav-link collapsed" href="#submenu2" data-toggle="collapse" data-target="#submenu2">Play Games </a>
+             <hr>
           <div class="collapse" id="submenu2" aria-expanded="false">
             <ul class="flex-column pl-4 nav">
               <li class="nav-item">
@@ -43,26 +47,29 @@
               </li>
               <li class="nav-item">
                 <a href="steam://run/252950" class="nav-link collapsed py-1">Rocket League</a>
+              
               </li>
-
+   
             </ul>
           </div>
-          <hr>
+        
         </li>
         <li class="nav-item" v-if="team">
           <a class="nav-link collapsed" href="#teams" data-toggle="collapse" data-target="#teams">My Teams</a>
+           <hr>
           <div class="collapse" id="teams" aria-expanded="false">
             <ul class="flex-column pl-4 nav">
               <li class="nav-item">
                 <router-link :to="`/team/${team._id}`" class="nav-link collapsed py-1">{{team.teamName}}</router-link>
               </li>
-
+ <hr>
             </ul>
           </div>
           <hr>
         </li>
         <li class="nav-item">
           <a class="nav-link collapsed" href="#submenu3" data-toggle="collapse" data-target="#submenu3">Create</a>
+                    <hr>
           <div class="collapse" id="submenu3" aria-expanded="false">
             <ul class="flex-column pl-4 nav">
               <li class="nav-item">
@@ -71,9 +78,10 @@
               <li class="nav-item">
                 <a @click="$emit('createTeam')" class="nav-link collapsed py-1">Team</a>
               </li>
+              <hr>
             </ul>
           </div>
-          <hr>
+          
         </li>
           <li class="nav-item">
           <a class="nav-link collapsed" href="#submenu10" data-toggle="collapse" data-target="#submenu10">Streaming</a>
@@ -94,18 +102,21 @@
           <hr>
         </li>
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Sponsor</a>
+          <a class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Sponsor</a> 
           <div class="collapse" id="submenu4" aria-expanded="false">
             <ul class="flex-column pl-4 nav">
               <li class="nav-item">
               <li>
               <a href="#/sponsors" style="text-decoration: none;">Sponsors Page </a>
               </li>
+          
               </ul>
               </div>
 <hr>
               </li>
-             <li class="nav-item">
+
+              
+             <li class="nav-item"> <hr>
           <a class="nav-link collapsed" href="#submenu5" data-toggle="collapse" data-target="#submenu5">Hire</a>
           <div class="collapse" id="submenu5" aria-expanded="false">
            <ul class="flex-column pl-4 nav">

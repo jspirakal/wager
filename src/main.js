@@ -6,7 +6,9 @@ import BootstrapVue from 'bootstrap-vue'
 import VueSweetalert2 from 'vue-sweetalert2';
 import VeeValidate from 'vee-validate';
 import { ValidationProvider } from 'vee-validate';
+import VueLazyLoad from 'vue-lazyload'
 
+Vue.use(VueLazyLoad)
 Vue.component('ValidationProvider', ValidationProvider);
 Vue.use(VeeValidate);
 Vue.use(BootstrapVue);

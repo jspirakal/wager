@@ -1,12 +1,12 @@
 <template>
     <div class="col-md-8 main-content">
-    <h5 class="heading-80">Streams & Videos</h5>  
+    <h5 class="heading2">Streams & Videos</h5>  
     <VideoPlayer/>
     <br>
- <b-button  block id="ddown1" class="m-md-2">
+ <b-button href="#/streams/form" block class="m-md-2">
    Submit YouTube video/stream
   </b-button>
-   <b-button disabled v-b-modal.modal3 block id="ddown1" class="m-md-2">
+   <b-button disabled block id="ddown1" class="m-md-2">
    Submit Twitch stream
   </b-button>
 

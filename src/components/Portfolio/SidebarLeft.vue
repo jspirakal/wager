@@ -10,17 +10,17 @@
                     <a class="" href="http://localhost:8080" style="text-decoration: none;">Home</a> 
             <hr></li>
             <li><a class="" href="#" style="text-decoration: none;">Team History</a><hr></li>
-          <div class="active" id="line1"> 
-             <li><a class="" href="#" id="a" style="text-decoration: none;">Screenshot</a> 
-            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+             <div class="active"> 
+               <li>
+              <a href="#/streams" style="text-decoration: none;">Streams</a> 
+            </li>
+
+            <hr></div>
+                     <div class="active"> 
+             <li><a href="#/screenshots" style="text-decoration: none;">Screenshots</a> 
             <hr></li></div>
-             <div class="active" id="line2"> 
-             <li><a class="" href="#" id="a" style="text-decoration: none;">Stream</a> 
-            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-            <hr></li></div>
-            <div class="active" id="line3"> 
-             <li><a class="" href="#" id="a" style="text-decoration: none;">Stats</a> 
-            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+            <div class="active" > 
+             <li><a  href="#" style="text-decoration: none;">Stats</a> 
             <hr></li></div>
               <div class="active" id="line4"> 
              <li><a class="" href="#" id="a" style="text-decoration: none;">Schedule</a> 
@@ -32,10 +32,6 @@
             <hr></li></div>
               <div class="active" id="line6"> 
              <li><a class="" href="#" id="a" style="text-decoration: none;">Interviews</a> 
-            <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-            <hr></li></div>
-            <div class="active" id="line7"> 
-             <li><a class="" href="#" id="a" style="text-decoration: none;">Stream</a> 
             <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
             <hr></li></div>
             <div class="active" id="line8"> 

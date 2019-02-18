@@ -1,14 +1,13 @@
   <template>
  <div class="col-md-8 main-content">
         
-                                <h5 class="heading-80">Sponsor Application</h5>
+                               <center> <h5 class="heading2" style="text-align: center;">Sponsors</h5></center>
   <b-card>
   <b-form  @submit="onSubmit" @reset="onReset" >
-    <h5>Contact Details</h5>
+    <h5>Sponsor Application</h5>
     <ValidationProvider name="name" rules="required|min:5|max:30">
   <div slot-scope="{ errors }">  
    <b-form-group
-      description="eg. John Stark"
       label="Enter your name"
     >
       <b-form-input v-model="form.name" trim />
@@ -19,7 +18,6 @@
     <ValidationProvider name="preferred contact" rules="required|min:5|max:100">
   <div slot-scope="{ errors }">  
     <b-form-group
-      description="eg. call me on +61400123456"
       label="Enter your preferred contact"
     >
       <b-form-input v-model="form.contact" trim />
@@ -30,7 +28,6 @@
   <ValidationProvider name="email" rules="required|email">
   <div slot-scope="{ errors }">  
    <b-form-group
-      description="eg. smokingnoobs@gmail.com"
       label="Enter your email"
     >
       <b-form-input v-model="form.email" trim />
@@ -41,7 +38,6 @@
    <ValidationProvider name="Skype ID" rules="required|min:2|max:50">
   <div slot-scope="{ errors }">  
   <b-form-group
-      description="eg. NikkiMinaj000"
       label="Enter your Skype ID (optional)"
     >
       <b-form-input id="input5" v-model="form.skype" trim />
@@ -53,7 +49,6 @@
        <ValidationProvider name="company name" rules="required|min:5|max:50">
   <div slot-scope="{ errors }">  
    <b-form-group
-      description="eg. WagerGames PTY LTD"
       label="Enter the name of the company you work for."
     >
       <b-form-input v-model="form.company" trim />
@@ -64,7 +59,6 @@
   <ValidationProvider name="job title" rules="required|min:5|max:30">
   <div slot-scope="{ errors }">  
     <b-form-group
-      description="eg. CEO"
       label="Enter your job title"
     >
       <b-form-input v-model="form.job" trim />
@@ -75,7 +69,6 @@
    <ValidationProvider name="country" rules="required|min:5|max:30">
   <div slot-scope="{ errors }">  
    <b-form-group
-      description="eg. Australia"
       label="Enter the country you are located in"
     >
       <b-form-input  v-model="form.country" trim />
@@ -86,7 +79,6 @@
        <ValidationProvider name="city and state" rules="required|min:5|max:70">
   <div slot-scope="{ errors }">  
   <b-form-group
-      description="eg. Perth, Western Australia"
       label="Enter the city and state you are located in."
     >
     
@@ -99,7 +91,6 @@
   <ValidationProvider name="facebook URL" rules="required|min:5|max:30">
   <div slot-scope="{ errors }">
    <b-form-group
-      description="eg. https://www.facebook.com/WagerGames/"
       label="Enter your company's facebook URL"
     >
       <b-form-input id="input2" :state="state" v-model="form.facebook" trim />
@@ -110,7 +101,6 @@
       <ValidationProvider name="website" rules="required|min:5|max:30">
   <div slot-scope="{ errors }">
     <b-form-group
-      description="eg. http://www.wagergames.co"
       label="Enter your company's website"
        >
       <b-form-input v-model="form.website" trim />
@@ -121,8 +111,6 @@
      <ValidationProvider name="twitch channel" rules="min:5|max:30">
   <div slot-scope="{ errors }">
    <b-form-group
-      id="fieldset1"
-      description="eg. https://www.twitch.tv/witlessmc"
       label="Enter your company's Twitch channel (optional)"
     >
       <b-form-input v-model="form.twitch" trim />
@@ -133,7 +121,6 @@
     <ValidationProvider name="YouTube channel" rules="min:5|max:30">
   <div slot-scope="{ errors }">
   <b-form-group
-      description="eg. https://www.youtube.com/channel/UCW69klJO5t2_kc4-HrjPJRg"
       label="Enter your company's YouTube channel (optional)"
     >
       <b-form-input v-model="form.youtube" trim />
@@ -146,7 +133,6 @@
     <ValidationProvider name="tournaments" rules="min:5|max:30">
   <div slot-scope="{ errors }">
    <b-form-group
-      description="eg. 102"
       label="How many tournaments have you organised? (optional)"
     >
       <b-form-input id="input2" :state="state" v-model="form.tournaments" trim />
@@ -157,9 +143,7 @@
      <ValidationProvider name="players" rules="min:5|max:30">
   <div slot-scope="{ errors }">
     <b-form-group
-      description="eg. 40"
       label="How many players took part in your tournaments generally? (optional)"
-      label-for="input1"
     >
       <b-form-input v-model="form.players" trim />
     </b-form-group>
@@ -169,7 +153,6 @@
        <ValidationProvider name="games" rules="min:5|max:30">
   <div slot-scope="{ errors }">
    <b-form-group
-      description="eg. DotA2, LoL, CS:GO" 
       label="What games are you interested in hosting tournaments for? Seperate them with commas (optional)"
     >
       <b-form-input v-model="form.games" trim />
@@ -180,7 +163,6 @@
         <ValidationProvider name="genres" rules="min:5|max:30">
   <div slot-scope="{ errors }">
   <b-form-group
-      description="eg. FPS, Survival"
       label="What genres are you most interested in? Seperate them with commas (optional)"
      >
       <b-form-input v-model="form.genres" trim />

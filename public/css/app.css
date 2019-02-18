@@ -49,6 +49,9 @@ header a:hover{
 .btc-news a {
   color: #40c2ed; }
 
+.app#div {
+text-align: left;
+}
 .partners hr {
   border: solid 1px gray; }
 
@@ -380,6 +383,11 @@ header a:hover{
   background-color: #222222;
   color: #fff;
   padding: 10px 0 10px 50px; }
+  .heading2 {
+    background-color: #222222;
+    color: #fff;
+    padding: 10px 0 10px 0px;
+    }
 
 .heading-80 {
   background-color: #222222;

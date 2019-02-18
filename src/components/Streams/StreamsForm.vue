@@ -1,13 +1,12 @@
  <template>
   <div class="col-md-8 main-content">
-    <h5 class="heading-80">Streams & Videos Submission</h5> 
+    <h5 class="heading2">Streams & Videos Submission</h5> 
      <b-card>
   <b-form  @submit="onSubmit" @reset="onReset" >
-    <h5>Contact Details</h5>
+    <h5>YouTube Submission</h5>
     <ValidationProvider name="url" rules="required|min:15|max:60|url">
   <div slot-scope="{ errors }">  
    <b-form-group
-      description="eg. https://www.youtube.com/embed/vLEek3I3wac"
       label="On the YouTube video go to 'Share' then 'Embed' and enter the URL located in the popup"
     >
       <b-form-input v-model="form.url" trim />
@@ -18,7 +17,6 @@
     <ValidationProvider name="title" rules="required|min:5|max:200">
   <div slot-scope="{ errors }">  
     <b-form-group
-      description="eg. Dota 2 Daily WTF - Deadly Love"
       label="Enter the title that appears on the YouTube videos."
     >
       <b-form-input v-model="form.title" trim />
@@ -29,7 +27,6 @@
   <ValidationProvider name="creator" rules="required|min:2|max:40">
   <div slot-scope="{ errors }">  
    <b-form-group
-      description="eg. Dota Watafak"
       label="Enter the creator of the YouTube video here">
     
       <b-form-input v-model="form.creator" trim />
@@ -40,8 +37,7 @@
    <ValidationProvider name="Select a suitable content type from the list" rules="required">
   <div slot-scope="{ errors }">  
        <b-form-group 
-                    label="Select the content type from the dropdown list"
-                    description="eg. Gaming">
+                    label="Select the content type from the dropdown list">
         <b-form-select :options="contents"
                       v-model="form.content">
         </b-form-select>
@@ -52,7 +48,6 @@
    <ValidationProvider name="country" rules="required|min:5|max:50">
   <div slot-scope="{ errors }">  
    <b-form-group
-      description="eg. Australia"
       label="Enter the country you are located in"
     >
       <b-form-input  v-model="form.country" trim />
@@ -101,22 +96,13 @@
       onReset(evt) {
         evt.preventDefault()
         /* Reset our form values */
-        this.form.name = ''
-        this.form.contact = ''
-        this.form.email = ''
-        this.form.skype = ''
-        this.form.company = ''
-        this.form.job = ''
-        this.form.city = ''
+        this.form.url = ''
+        this.form.title = ''
+        this.form.creator = ''
+        this.form.content = null
         this.form.country = ''
-        this.form.facebook = ''
-        this.form.website = ''
-        this.form.twitch = ''
-        this.form.youtube = ''
-        this.form.tournaments = ''
-        this.form.players = ''
-        this.form.games = ''
-        this.form.genres = ''
+        this.form.accurate = []
+        this.form.terms = []
         /* Trick to reset/clear native browser form validation state */
         this.show = false
         this.$nextTick(() => {

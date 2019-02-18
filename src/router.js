@@ -19,10 +19,22 @@ import Streams from '@/views/Streams.vue'
 import Sponsors from '@/views/Sponsors.vue'
 import SponsorsForm from '@/views/SponsorsForm.vue'
 import StreamsForm from '@/views/StreamsForm.vue'
+import Screenshots from '@/views/Screenshots.vue'
+import ScreenshotsForm from '@/views/ScreenshotsForm.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/screenshots/form',
+      name: 'ScreenshotsForm',
+      component: ScreenshotsForm
+    },
+    {
+      path: '/screenshots',
+      name: 'Screenshots',
+      component: Screenshots
+    },
     {
       path: '/streams/form',
       name: 'StreamsForm',
