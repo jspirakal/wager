@@ -16,10 +16,22 @@ import NewPost from '@/components/NewPost'
 import EditPost from '@/components/EditPost'
 import Stats from '@/views/Stats.vue'
 import Streams from '@/views/Streams.vue'
+import Sponsors from '@/views/Sponsors.vue'
+import SponsorsForm from '@/views/SponsorsForm.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/sponsors/form',
+      name: 'SponsorsForm',
+      component: SponsorsForm
+    },
+      {
+      path: '/sponsors',
+      name: 'Sponsors',
+      component: Sponsors
+    },
     {
       path: '/streams',
       name: 'Streams',

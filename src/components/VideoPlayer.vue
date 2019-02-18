@@ -76,10 +76,14 @@
              </b-row>
   
         </b-container>
+        <div>currentPage: {{currentPage}}</div>         
+    <b-pagination align="center" size="md" :total-rows="100" v-model="currentPage" :per-page="10">
+    </b-pagination>
+           
     </div>
-     
+ 
 
-  </div>
+
 
   
 </template>
@@ -141,6 +145,7 @@ export default {
   data () {
     return {
         videos,
+        currentPage: null,
          activeVideo: videos[0]
     }
   },
@@ -168,7 +173,7 @@ methods:{
 }
 
 .thumbnail-info{
-    margin-left:20px;
+    margin-left:10px;
     width:100%;
 }
 
