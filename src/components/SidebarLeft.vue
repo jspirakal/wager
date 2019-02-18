@@ -75,13 +75,31 @@
           </div>
           <hr>
         </li>
+          <li class="nav-item">
+          <a class="nav-link collapsed" href="#submenu10" data-toggle="collapse" data-target="#submenu10">Streaming</a>
+
+          <div class="collapse" id="submenu10" aria-expanded="false">
+            <ul class="flex-column pl-4 nav">
+              <li class="nav-item">
+                <div class="active" id="line1">
+                  <li>
+                    <a href="#/streams" style="text-decoration: none;">Watch streams</a>
+                  </li>
+                </div>
+
+
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </li>
         <li class="nav-item">
           <a class="nav-link collapsed" href="#submenu4" data-toggle="collapse" data-target="#submenu4">Sponsor</a>
           <div class="collapse" id="submenu4" aria-expanded="false">
             <ul class="flex-column pl-4 nav">
               <li class="nav-item">
               <li>
-              <a href="/sponsors" style="text-decoration: none;">Sponsors Page </a>
+              <a href="#/sponsors" style="text-decoration: none;">Sponsors Page </a>
               </li>
               </ul>
               </div>
@@ -94,14 +112,14 @@
               <li class="nav-item">
                 <div class="active" id="line1">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Teams</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Teams</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
                 <div class="active" id="line2">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Players</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Players</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
 
@@ -118,14 +136,14 @@
               <li class="nav-item">
                 <div class="active" id="line1">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Teams</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Teams</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
                 <div class="active" id="line2">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Players</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Players</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
 
@@ -142,14 +160,14 @@
               <li class="nav-item">
                      <div class="active" id="line1">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Teams</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Teams</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
                 <div class="active" id="line2">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Players</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Players</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
 
@@ -166,14 +184,14 @@
               <li class="nav-item">
                 <div class="active" id="line1">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Teams</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Teams</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
                 <div class="active" id="line2">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Players</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Players</a>
+                    <a href="#" id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
 
@@ -190,35 +208,16 @@
               <li class="nav-item">
                 <div class="active" id="line1">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Create an event</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Create an event</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
                 <div class="active" id="line2">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Buy tickets</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Buy tickets</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
-
-              </li>
-            </ul>
-          </div>
-          <hr>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="#submenu10" data-toggle="collapse" data-target="#submenu10">Streaming</a>
-
-          <div class="collapse" id="submenu10" aria-expanded="false">
-            <ul class="flex-column pl-4 nav">
-              <li class="nav-item">
-                <div class="active" id="line1">
-                  <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Watch streams</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-                  </li>
-                </div>
-
 
               </li>
             </ul>
@@ -233,14 +232,14 @@
               <li class="nav-item">
                 <div class="active" id="line1">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Teams</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Teams</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
                 <div class="active" id="line2">
                   <li>
-                    <a class="" href="#" id="a" style="text-decoration: none;">Players</a>
-                    <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
+                    <a id="a" style="text-decoration: none;">Players</a>
+                    <a id="b" style="text-decoration: none;">Coming Soon</a>
                   </li>
                 </div>
 

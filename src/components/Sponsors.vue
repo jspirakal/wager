@@ -182,7 +182,7 @@
     <b-pagination align="center" size="md" :total-rows="100" v-model="currentPage" :per-page="10">
     </b-pagination>
 <div style="text-align: center;">
-           <b-button>Become a sponsor</b-button>
+           <b-button href="#/sponsors/form">Become a sponsor</b-button>
         </div>
     <br>
 

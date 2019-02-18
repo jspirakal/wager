@@ -49,7 +49,7 @@
        </div>
                                                 <ul>
                                                         <li><a href="Support@wagergames.io" style="text-decoration: none;">Support@wagergames.io</a></li>
-                                                 <a href="http://localhost:8080/media" style="text-decoration: none;">Media Submission</a>
+                                                 <a href="#/posts" style="text-decoration: none;">Media Submission</a>
   
                                                 </ul>
                                         </div>
@@ -64,8 +64,8 @@
                                         <div class="col-md-4">
                                                 <h5>Help</h5>
                                                 <ul> 
-                      <li>  <a href="/termsandconditions" style="text-decoration: none;">Terms and Conditions</a></li>                                              
-                                                      <li><a href="/privacypolicy" style="text-decoration: none;">Privacy Policy</a></li>
+                      <li>  <a href="#/termsandconditions" style="text-decoration: none;">Terms and Conditions</a></li>                                              
+                                                      <li><a href="#/privacypolicy" style="text-decoration: none;">Privacy Policy</a></li>
                                                 </ul>
                                         </div>
                                 </div>

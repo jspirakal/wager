@@ -151,7 +151,7 @@
     >
       <b-form-input id="input2" :state="state" v-model="form.tournaments" trim />
     </b-form-group>
-            <p>{{ errors[0] }}</p>        
+         <p>{{ errors[0] }}</p>         
   </div>
     </ValidationProvider>
      <ValidationProvider name="players" rules="min:5|max:30">
@@ -221,6 +221,7 @@
     methods: {
       onSubmit(evt) {
         evt.preventDefault()
+        const userStr = JSON.stringify(this.form);
         alert(JSON.stringify(this.form))
       },
       onReset(evt) {
@@ -251,3 +252,4 @@
     }
   }
   </script>
+  
