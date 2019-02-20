@@ -141,7 +141,7 @@ export default {
      methods: {
         register() {
             if (this.password != this.passwordConfirm) {
-                this.errorPassword = "Password and passwordConfirm did't mcatched"
+                this.errorPassword = "Password and password confirm didn't match"
                 return false;
             }
             this.load = true;
@@ -246,7 +246,7 @@ export default {
             if(!e.target.value || e.target.value == '')
                 e.target.setCustomValidity("Please fill out this field")
             else
-                e.target.setCustomValidity("Please enter good email e.x name@mail.com")
+                e.target.setCustomValidity("Please enter a good email eg. name@mail.com")
         }
         this.$refs.email.oninput = function(e) {
             e.target.setCustomValidity("");

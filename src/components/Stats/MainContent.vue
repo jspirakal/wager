@@ -1,5 +1,6 @@
 <template>
     <div class="col-md-8 main-content">
+           <li><a href="http://localhost:4000/api/users/auth/steam" class="fa fa-steam"></a></li>
        <!--Div that will hold the dashboard-->
     <div id="dashboard_div">
       <!--Divs that will hold each control and chart-->
@@ -55,6 +56,7 @@
         <b-table striped hover :items="items"></b-table>
     </p>
   </b-card>
+  <button v-on:click="fetchid">Fetch ID</button>
 </div>                   
                                                       
 </template>
@@ -86,7 +88,19 @@ export default {
       items: items,
       items2: items2,
       }
+    },
+     methods: {
+    fetchid: function (event) {
+      // `this` inside methods point to the Vue instance
+      alert('Hello ' + this.name + '!')
+      // `event` is the native DOM event
+      alert(event.target.tagName)
+      console.log(this.$route)
     }
+  }
+
+// you can invoke methods in JavaScript too
+
  
 }
 </script>

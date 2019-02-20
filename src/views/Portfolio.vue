@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader.vue';
+import MainHeader from '@/components/Navigation.vue';
 import FooterSocial from '@/components/FooterSocial.vue';
 import MainFooter from '@/components/MainFooter.vue';
 import UserProfile from '@/components/Portfolio/UserProfile.vue';
@@ -39,6 +39,7 @@ import MainContent from "@/components/Portfolio/MainContent.vue";
 import SidebarRight from '@/components/Portfolio/SidebarRight';
 import Sponsors from '@/components/Portfolio/Sponsors.vue';
 import Brands from '@/components/Portfolio/Brands.vue';
+import Navigation from '@/components/Navigation.vue';
 import {
     mapGetters,
     mapActions
@@ -63,7 +64,8 @@ export default {
         MainContent,
         SidebarRight,
         Sponsors,
-        Brands
+        Brands,
+        Navigation
     },
     computed: {
         ...mapGetters({

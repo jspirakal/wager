@@ -3,57 +3,56 @@
     <div class="col-md-2 p-0">
       <div class="sidebar-left-page3">
         <ul>
-                
-          
-                  <li>
             <li>
                     <a class="" href="http://localhost:8080" style="text-decoration: none;">Home</a> 
-            <hr></li>
+                             
+            </li>
+  
             <li><a class="" href="#" style="text-decoration: none;">Team History</a><hr></li>
              <div class="active"> 
                <li>
               <a href="#/streams" style="text-decoration: none;">Streams</a> 
             </li>
 
-            <hr></div>
+            </div>
                      <div class="active"> 
              <li><a href="#/screenshots" style="text-decoration: none;">Screenshots</a> 
-            <hr></li></div>
+            </li></div>
             <div class="active" > 
-             <li><a  href="#" style="text-decoration: none;">Stats</a> 
-            <hr></li></div>
+             <li><a  href="#/dota2/stats" style="text-decoration: none;">Stats</a> 
+            </li></div>
               <div class="active" id="line4"> 
              <li><a class="" href="#" id="a" style="text-decoration: none;">Schedule</a> 
             <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-            <hr></li></div>
+            </li></div>
               <div class="active" id="line5"> 
              <li><a class="" href="#" id="a" style="text-decoration: none;">Managers</a> 
             <a class="" href="#" id="b" style="text-decoration: nonee;">Coming Soon</a>
-            <hr></li></div>
+            </li></div>
               <div class="active" id="line6"> 
              <li><a class="" href="#" id="a" style="text-decoration: none;">Interviews</a> 
             <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-            <hr></li></div>
+            </li></div>
             <div class="active" id="line8"> 
              <li><a class="" href="#" id="a" style="text-decoration: none;">Gallery</a> 
             <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-            <hr></li></div>
+            </li></div>
             <div class="active" id="line9"> 
              <li><a class="" href="#" id="a" style="text-decoration: none;">Online/LAN</a> 
             <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-            <hr></li></div>
+            </li></div>
             <div class="active" id="line10"> 
              <li><a class="" href="#" id="a" style="text-decoration: none;">Matches</a> 
             <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-            <hr></li></div>
+            </li></div>
 <div class="active" id="line11"> 
              <li><a class="" href="#" id="a" style="text-decoration: none;">Tournament</a> 
             <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-            <hr></li></div>
+            </li></div>
             <div class="active" id="line12"> 
              <li><a class="" href="#" id="a" style="text-decoration: none;">Connect</a> 
             <a class="" href="#" id="b" style="text-decoration: none;">Coming Soon</a>
-            <hr></li></div>
+            </li></div>
 
            
           
