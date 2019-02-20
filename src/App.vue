@@ -14,6 +14,9 @@ export default {
 </script>
 
 <style>
+.pointer {
+  cursor: pointer;
+}
 .lds-ring {
   display: inline-block;
   position: relative;

@@ -21,7 +21,7 @@
       </div>
     </div>
     <!-- Modal Component -->
-    <b-modal ref="myModal" id="modal1" :title="modalTitle" hide-footer>
+    <b-modal @hidden="modalComponent = null; modelProps = null" ref="myModal" id="modal1" :title="modalTitle" hide-footer>
         <component :is="modalComponent" @finish="closeForm" :modalProps="modalProps"></component>
     </b-modal>
   </div>
@@ -85,6 +85,9 @@ export default {
     this.$root.$on("openDialog", data => {
       this.openDialog(data);
     });
+    this.$root.$on("openEditDialog", data => {
+      this.openDialog(data);
+    });
   },
   methods: {
     ...mapActions(["getProfile"]),
@@ -96,9 +99,18 @@ export default {
       this.$refs.myModal.show();
     },
     openDialog(data) {
-      this.modalComponent = this.dialog[data];
-      this.modalTitle = data.replace(/([A-Z])/g, ' $1');
-      this.modalProps = {teamId: this.team._id}
+      if(data.component)
+      {
+        this.modalComponent = this.dialog[data.component];
+        this.modalTitle = (data.component).replace(/([A-Z])/g, ' $1');
+        this.modalProps = {teamId: this.team._id, model: data.data}
+      }
+      else
+      {
+        this.modalComponent = this.dialog[data];
+        this.modalTitle = data.replace(/([A-Z])/g, ' $1');
+        this.modalProps = {teamId: this.team._id}
+      }
       this.$refs.myModal.show();
     },
     closeForm() {
@@ -797,14 +809,14 @@ export default {
     .raw1 .gallery-cell .img {
       width: 100%;
       float: left;
-      height: 100px;
+      height: 120px;
       border-radius: 10px 10px 0 0;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
-      background-size: cover;
+      background-size: 100px auto !important;
       background-repeat: no-repeat !important;
-      background-size: 100% 100% !important;
+      background-position: center !important;
     }
 
     .gallery-cell p {

@@ -5,7 +5,8 @@
                       type="text"
                       v-model="username"
                       placeholder="Enter name"
-                      required>
+                      required
+                      class="mb-2">
         </b-form-input>
         <b-form-input id="name"
                       type="text"
