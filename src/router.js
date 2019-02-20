@@ -21,6 +21,7 @@ import SponsorsForm from '@/views/SponsorsForm.vue'
 import StreamsForm from '@/views/StreamsForm.vue'
 import Screenshots from '@/views/Screenshots.vue'
 import ScreenshotsForm from '@/views/ScreenshotsForm.vue'
+import Dota2 from '@/views/Dota2.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -76,9 +77,17 @@ export default new Router({
       component: Posts
     },
     {
-      path: '/dota2search',
+      path: '/dota2/search',
       name: '/dota2search',
       component: Dota2Search,
+      meta: {
+        requiresAuth: true,
+      }
+    }, 
+    {
+      path: '/dota2',
+      name: '/dota2',
+      component: Dota2,
       meta: {
         requiresAuth: true,
       }

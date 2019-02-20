@@ -28,9 +28,13 @@
 
 			<div class="col_2">
 				<i class="fa fa-pencil" @click="$root.$emit('openDialog', 'TeamUpcomingEvents')"></i>
-				<flickity ref="flickity">
+				<flickity ref="flickity" v-if="data.upcomingEvents && data.upcomingEvents.length > 0">
 					<div class="carousel-cell gallery-cell" v-for="(item, i) in data.upcomingEvents" :key="i">
-						<div class="img" :style="{'background':'url('+item.eventImage+')'}"></div>
+						<div  
+							@click="$root.$emit('openEditDialog', {component: 'TeamUpcomingEvents', mode: 'Edit', data: i})" 
+							class="img" 
+							:style="{'background':'url('+item.eventImage+')'}">
+						</div>
 						<div class="txt">
 							<p>1st
 								<br> {{item.eventName}}
@@ -52,7 +56,9 @@
 				</div>
 				<div class="content">
 					<flickity class="gallery" v-if="data.achievements.length > 0">
-						<div class="carousel-cell gallery-cell" v-for="(item, i) in data.achievements" :key="i">
+						<div
+							@click="$root.$emit('openEditDialog', {component: 'TeamAchievement', mode: 'Edit', data: i})"  
+							class="carousel-cell gallery-cell" v-for="(item, i) in data.achievements" :key="i">
 							<div class="img">
 								<center>
 							 		<img :src="item.imgPath">
@@ -88,11 +94,12 @@
 					</a>
 				</div>
 				<div class="col2" v-if="data.matches.length > 0">
-					<div class="team" v-for="(item, i) in data.matches" :key="i">
+					<div class="team" v-for="(item, i) in data.matches" :key="i"
+							@click="$root.$emit('openEditDialog', {component: 'TeamMatch', mode: 'Edit', data: i})"  >
 						<div class="col">
 							<b-img max-width="75px" max-height="75px" thumbnail :src="item.gamePic" />
 							<p>{{item.gameName}}
-								<br>{{item.date}}</p>
+								<br>{{moment(item.date).format('DD-MM-YYYY')}}</p>
 							<a :href="item.link">Watch </a>
 						</div>
 						<div style="margin-top:50px">
@@ -229,7 +236,8 @@
 			<i class="fa fa-pencil" style="font-size: 16px" @click="$root.$emit('openDialog', 'TeamProduct')"></i>
 			</h4>
 			<flickity v-if="data.products.length > 0">
-				<div class="carousel-cell" v-for="(item, i) in data.products" :key="i">
+				<div  @click="$root.$emit('openEditDialog', {component: 'TeamProduct', mode: 'Edit', data: i})"
+					class="carousel-cell" v-for="(item, i) in data.products" :key="i">
 					<center>
 						<p>{{item.productName}}</p>
 						<br>
@@ -241,7 +249,7 @@
 							<a :href="item.link"><span>Buy Now</span></a>
 						</div>
 						<div class="wrapper-inner-tab-backgrounds-second">
-							<div class="sim-button button17">
+							<div class="sim-button button17" style="visibility: hidden">
 								<a :href="item.link"><span>Buy Now</span></a>
 							</div>
 						</div>
@@ -273,12 +281,14 @@
 import Flickity from 'vue-flickity';
 import {mapGetters, mapActions, mapState} from 'vuex';
 import { setTimeout } from 'timers';
+import * as moment from 'moment'
 
 export default {
 	name: "Raw",
 	data() {
 		return {
-			newData: true
+			newData: true,
+			moment
 		}
 	},
   computed: {

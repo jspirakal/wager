@@ -1,7 +1,7 @@
 <template>
     <div class="row profile">
         <div class="col-md-2 person">
-                <img width="150" :src="fields.profilePic ? fields.profilePic : 'img/person.png'" alt="Hero">
+                <img style="width: 150px; height: 150px; border-radius: 150px" :src="fields.profilePic ? fields.profilePic : 'img/person.png'" alt="Hero">
         </div>
 
         <div class="col-md-10">

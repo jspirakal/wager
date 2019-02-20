@@ -7,25 +7,28 @@
         <b-form-input id="name"
                       type="text"
                       v-model="form.productName"
-                      placeholder="Enter name">
+                      placeholder="Enter name"
+                      required>
         </b-form-input>
       </b-form-group>
       <b-form-group id="date"
                     label="Product price"
                     label-for="date">
         <b-form-input id="date"
-                      type="text"
+                      type="number"
                       v-model="form.price"
-                      placeholder="product price">
+                      placeholder="product price"
+                      required>
         </b-form-input>
       </b-form-group>
       <b-form-group id="link"
                     label="Product Website"
                     label-for="link">
         <b-form-input id="link"
-                      type="text"
+                      type="url"
                       v-model="form.buy"
-                      placeholder="product website">
+                      placeholder="product website"
+                      required>
         </b-form-input>
       </b-form-group>
       <!-- Styled -->
@@ -46,7 +49,7 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "edit-team-product",
-  props: ['data'],
+  props: ['data', 'modalProps'],
   computed: {
     ...mapGetters({
       team: 'team/activeTeam'
@@ -71,19 +74,30 @@ export default {
 
       if(this.file) {
         let formData = new FormData();
-        formData.append("file", this.main);
+        formData.append("file", this.file);
         upload = await api.postMultipart("/api/file/upload", formData );
         if(upload.data.url)
           this.form.image = upload.data.url;
       }
 
+      if(this.modalProps && !isNaN(this.modalProps.model)) 
+        this.team.products.splice(this.modalProps.model, 1,{...this.form});
+      else
       this.team.products.push(this.form);
 
       this.updateTeam({products: this.team.products})
         .then(res => this.$emit('finish'))
         .catch(err => this.$emit('finish'));
     }
-  }
+  },
+    mounted() {
+      if(this.modalProps && !isNaN(this.modalProps.model))
+      {
+        this.form = {...this.team.products[this.modalProps.model]};
+      }
+      else
+        this.form = {}
+    }
 }
 </script>
 

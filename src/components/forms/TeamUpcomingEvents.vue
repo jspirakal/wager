@@ -7,6 +7,7 @@
         <b-form-input id="name"
                       type="text"
                       v-model="form.eventName"
+                      required
                       placeholder="Enter name">
         </b-form-input>
       </b-form-group>
@@ -16,6 +17,8 @@
         <b-form-input id="date"
                       type="date"
                       v-model="form.eventDate"
+                      value="01/01/2019"
+                      required
                       placeholder="dd/mm/yyyy">
         </b-form-input>
       </b-form-group>
@@ -23,14 +26,15 @@
                     label="Event Website"
                     label-for="link">
         <b-form-input id="link"
-                      type="text"
+                      type="url"
                       v-model="form.eventLink"
+                      required
                       placeholder="url of event">
         </b-form-input>
       </b-form-group>
       <!-- Styled -->
-      <b-form-file v-model="file" :state="Boolean(file)" placeholder="Choose event photo"></b-form-file>
-      <div v-if="file" class="mt-3">Selected file: {{file && file.name}}</div>
+      <b-form-file required v-model="file" :state="Boolean(file)" placeholder="Choose event photo"></b-form-file>
+      <div v-if="file" class="mt-3">Selected file: {{file && file.name}} <i @click="file = null" class="fa fa-close pointer"></i></div>
 
       <div style="margin-top: 20px; text-align: right">
         <div v-if="load" class="lds-ring"><div></div><div></div><div></div><div></div></div>
@@ -43,10 +47,11 @@
 <script>
 import api from "@/services/RestService"
 import { mapGetters, mapActions } from "vuex";
+import * as moment from 'moment'
 
 export default {
   name: "edit-team-detail",
-  props: ['data'],
+  props: ['data', 'modalProps'],
   data() {
     return {
       load: false,
@@ -56,7 +61,8 @@ export default {
         eventImage: '',
         eventDate: '',
         eventLink: ''
-      }
+      },
+      moment
     }
   },
   computed: {
@@ -70,6 +76,7 @@ export default {
     }),
     async submit() {
       console.log("submitting");
+
       let that = this;
       that.load = true;
 
@@ -83,11 +90,37 @@ export default {
         this.form.eventImage = upload.data.url;
       }
 
-      this.team.upcomingEvents.push(this.form);
+
+      if(this.modalProps && !isNaN(this.modalProps.model)) 
+        this.team.upcomingEvents.splice(this.modalProps.model, 1,{...this.form});
+      else
+        this.team.upcomingEvents.push(this.form);
 
       this.updateTeam({upcomingEvents: this.team.upcomingEvents})
         .then(res => this.$emit('finish'))
         .catch(err => this.$emit('finish'));
+    }
+  },
+  mounted() {
+    if(this.modalProps && !isNaN(this.modalProps.model))
+    {
+      this.form = {...this.team.upcomingEvents[this.modalProps.model]};
+      this.form.eventDate = moment(this.form.eventDate).format('DD-MM-YYYY');
+    }
+    else
+      this.form = {
+        eventName: '',
+        eventImage: '',
+        eventDate: '',
+        eventLink: ''
+      }
+  },
+  watch: {
+    "modalProps": function(){
+      if(this.modalProps && !isNaN(this.modalProps.model))
+      {
+        this.form = {...this.team.upcomingEvents[this.modalProps.model]};
+      }
     }
   }
 }
